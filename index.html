@@ -151,6 +151,38 @@
             <ul id="todo-list" class="todo-list"></ul>
         </div>
 
+        <!-- Calculator App -->
+        <div id="calculator-app" class="todo-app" style="display: none;">
+            <button onclick="showMain()">← Back</button>
+            <input id="calculator-display" readonly value="0" />
+            <div class="calculator-buttons">
+              <div>
+                <button class="calculator-digit" data-digit="7">7</button>
+                <button class="calculator-digit" data-digit="8">8</button>
+                <button class="calculator-digit" data-digit="9">9</button>
+                <button class="calculator-operator" data-op="/">÷</button>
+              </div>
+              <div>
+                <button class="calculator-digit" data-digit="4">4</button>
+                <button class="calculator-digit" data-digit="5">5</button>
+                <button class="calculator-digit" data-digit="6">6</button>
+                <button class="calculator-operator" data-op="*">×</button>
+              </div>
+              <div>
+                <button class="calculator-digit" data-digit="1">1</button>
+                <button class="calculator-digit" data-digit="2">2</button>
+                <button class="calculator-digit" data-digit="3">3</button>
+                <button class="calculator-operator" data-op="-">−</button>
+              </div>
+              <div>
+                <button id="calculator-clear">C</button>
+                <button class="calculator-digit" data-digit="0">0</button>
+                <button id="calculator-equals">=</button>
+                <button class="calculator-operator" data-op="+">+</button>
+              </div>
+            </div>
+          </div>
+
     </div>
 
     <script src="script.js"></script>
