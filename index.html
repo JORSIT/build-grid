@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
 </head>
 <body>
     <div class="container">
@@ -37,11 +36,11 @@
                     </button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Yamen Tahseen</div>
-                    <div class="app-description">Get ready to experience Yamen's creative coding skills in action.</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Random Quote Generator:</div>
+                    <div class="app-description">Get inspired with uplifting quotes in English and Arabic.</div>
+                    <button class="app-button" onclick="showApp('quote')">Launch App</button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -156,53 +155,11 @@
             <ul id="todo-list" class="todo-list"></ul>
         </div>
 
-      <!-- Yazan's Markdown App -->
-      <div id="markdown-app" class="markdown-app">
-        <button class="back-button" onclick="showMain()">← Back to Hub</button>
-
-        <div class="md-header">
-            <h2>Markdown Previewer</h2>
-            <p>Live-render GitHub-flavored Markdown as you type.</p>
-        </div>
-
-        <div class="md-input-section">
-            <textarea
-            id="markdown-input"
-            class="md-editor"
-            rows="8"
-            placeholder="Enter Markdown here…"
-            ></textarea>
-        </div>
-
-        <div class="md-preview-section">
-            <label for="markdown-output" class="md-label">Preview:</label>
-            <div
-            id="markdown-output"
-            class="md-preview markdown-body"
-            ></div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Quote Generator App by Abd-AlGhani -->
-    <div id="quote-generator-app" class="todo-app">
-        <button class="back-button" onclick="showMain()">← Back to Hub</button>
-  
-        <div class="todo-header">
-            <h2>Quote Generator by Abd-AlGhani</h2>
-            <p>Generate uplifting quotes at a click.</p>
-        </div>
-
-       <div class="todo-input-container">
-           <button id="generate-quote" class="add-button">Generate Quote</button>
-       </div>
-
-       <p id="quote-container" class="quote-item"></p>
     </div>
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
-    <script src="apps/gmarkdownApp.js"></script>
+    <script src="apps/sam.js"></script>
+
 </body>
 </html>
