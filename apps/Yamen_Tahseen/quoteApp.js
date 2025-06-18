@@ -171,22 +171,7 @@ function handleQuranClick() {
 // —— UI interaction Logic ——
 // This function shows a toast notification when a quote is copied
 function showCopiedToast() {
-  const toast = document.createElement('div');
-  toast.textContent = "📋 Quote copied!";
-  toast.style.cssText = `
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #4f46e5;
-    color: white;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    font-size: 0.95rem;
-    z-index: 1000;
-    transition: opacity 0.3s;
-  `;
+  const toast = AppUtils.createElement('div', 'quote-toast', "📋 Quote copied!");
   document.body.appendChild(toast);
   setTimeout(() => {
     toast.style.opacity = 0;
