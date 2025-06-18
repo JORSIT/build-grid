@@ -94,6 +94,13 @@
                     <div class="app-description">Ibrahim's creative application is in the works. Exciting times ahead!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
+                <!-- App Card -->
+                <div class="app-card implemented">
+                <div class="live-badge">LIVE</div>
+                <h3>Calculator</h3>
+                <p>Perform basic + − × ÷ operations with keyboard support.</p>
+                <button onclick="showApp('calculator')">Launch App</button>
+                </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -149,6 +156,13 @@
             </div>
 
             <ul id="todo-list" class="todo-list"></ul>
+        </div>
+        <!-- App Container -->
+        <div id="calculator-app" class="todo-app" style="display: none;">
+        <button onclick="showMain()">← Back</button>
+        <h2>Calculator</h2>
+        <div class="calc-display" id="calc-display">0</div>
+        <div class="calc-buttons" id="calc-buttons"></div>
         </div>
 
         <!-- Calculator App -->
