@@ -2,12 +2,6 @@
 let todos = [];
 let nextId = 1;
 
-// —— Navigation between “hub” and apps ——
-function showApp(appName) {
-  AppUtils.hide('main-view');
-  document.getElementById(`${appName}-app`).classList.add('active');
-}
-
 function showMain() {
   AppUtils.show('main-view');
   document.querySelectorAll('.todo-app').forEach(app =>
