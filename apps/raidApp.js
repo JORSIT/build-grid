@@ -1,69 +1,56 @@
-// —— Globals & State ——
-let todos = [];
-let nextId = 1;
-
-function showMain() {
-  AppUtils.show('main-view');
-  document.querySelectorAll('.todo-app').forEach(app =>
-    app.classList.remove('active')
-  );
-}
-
-// —— Todo-list core ——
-function addTodo() {
-  const text = AppUtils.getValue('todo-input').trim();
-  if (!text) return;
-  todos.push({ id: nextId++, text, completed: false });
-  AppUtils.setValue('todo-input', '');
-  renderTodos();
-}
-
-function toggleTodo(id) {
-  todos = todos.map(t => t.id === id ? { ...t, completed: !t.completed } : t);
-  renderTodos();
-}
-
-function deleteTodo(id) {
-  todos = todos.filter(t => t.id !== id);
-  renderTodos();
-}
-
-function renderTodos() {
-  const list = document.getElementById('todo-list');
-  list.innerHTML = '';
-  todos.forEach(({ id, text, completed }) => {
-    const li = AppUtils.createElement('li', 
-      `todo-item ${completed ? 'completed' : ''}`,
-      `
-        <input type="checkbox" class="todo-checkbox"
-               ${completed ? 'checked' : ''}
-               onchange="toggleTodo(${id})">
-        <span class="todo-text">${text}</span>
-        <div class="todo-actions">
-          <button class="delete-button" onclick="deleteTodo(${id})">
-            Delete
-          </button>
-        </div>
-      `
-    );
-    list.appendChild(li);
-  });
-}
-
-function handleKeyPress(e) {
-  if (e.key === 'Enter') addTodo();
-}
-
-// —— Bootstrapping ——  
 document.addEventListener('DOMContentLoaded', () => {
-  todos = [
-    { id: 1, text: "Explore this app!", completed: true },
-    { id: 2, text: "Fork/Clone this repository!", completed: false },
-    { id: 3, text: "Find your card and update it to \"implemented\" status only when done implementing!", completed: false },
-    { id: 4, text: "Add your app section to the HTML and implement your assigned functionality", completed: false  },
-    { id: 5, text: "Create a new branch and submit a Pull Request to be reviewd and merged", completed: false  },
-    { id: 6, text: "See your app go live for everyone to explorre and see!", completed: false  },
-  ];
-  nextId = 7;
-  renderTodos();
+  const input = document.getElementById('datetime-picker');
+  const display = document.getElementById('countdown-display');
+  let countdownInterval;
+
+  window.calculateCountdown = function() {
+    const datetimeValue = input.value;
+    if (!datetimeValue) {
+      alert('Please select a valid date and time.');
+      return;
+    }
+
+    const targetDate = new Date(datetimeValue);
+    if (targetDate <= new Date()) {
+      alert('Please select a future date and time.');
+      return;
+    }
+
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    function updateCountdown() {
+      const now = new Date();
+      let diff = targetDate - now;
+
+      if (diff <= 0) {
+        clearInterval(countdownInterval);
+        display.textContent = 'Countdown finished!';
+        return;
+      }
+
+      let totalSeconds = Math.floor(diff / 1000);
+
+      const years = Math.floor(totalSeconds / (365.25 * 24 * 60 * 60));
+      totalSeconds %= Math.floor(365.25 * 24 * 60 * 60);
+
+      const months = Math.floor(totalSeconds / (30.44 * 24 * 60 * 60)); 
+      totalSeconds %= Math.floor(30.44 * 24 * 60 * 60);
+
+      const days = Math.floor(totalSeconds / (24 * 60 * 60));
+      totalSeconds %= 24 * 60 * 60;
+
+      const hours = Math.floor(totalSeconds / 3600);
+      totalSeconds %= 3600;
+
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      display.textContent =
+        `${years} year(s) - ${months} month(s) - ${days} day(s) - ` +
+        `${hours} hour(s) - ${minutes} minute(s) - ${seconds} second(s)`;
+    }
+
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+  };
 });
