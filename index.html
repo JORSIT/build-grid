@@ -15,6 +15,16 @@
 
         <div id="main-view">
             <div class="apps-grid">
+   <div class="app-card implemented">
+  <div class="status-badge">LIVE</div>
+  <div class="app-name">Notes App</div>
+  <div class="app-description">Jot down and delete quick notes.</div>
+  <button class="app-button" onclick="showApp('notes')">
+    Launch App
+  </button>
+</div>
+
+
                 <!-- RAID - Card -->
                 <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
@@ -150,10 +160,18 @@
 
             <ul id="todo-list" class="todo-list"></ul>
         </div>
+        <div id="notes-app" class="todo-app" style="display: none">
+  <button class="back-button" onclick="showMain()">← Back</button>
+  <h2>Notes App</h2>
+
+  <input type="text" id="note-input" placeholder="Write a note..." />
+  <button id="add-note">Add Note</button>
+ <div id="notes-list"></div>
+</div>
 
     </div>
-
     <script src="script.js"></script>
+    <script src="apps/notes/notes.js"></script>
     <script src="apps/raidApp.js"></script>
 
 </body>
