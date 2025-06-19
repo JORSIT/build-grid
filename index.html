@@ -14,6 +14,7 @@
         </div>
 
         <div id="main-view">
+
             <div class="apps-grid">
                 <!-- RAID - Card -->
                 <div class="app-card implemented">
@@ -22,8 +23,7 @@
                     <div class="app-description">A simple and elegant todo list application to help you organize your tasks and boost productivity.</div>
                     <button class="app-button" onclick="showApp('raid')">Launch App</button>
                 </div>
-
-
+             
                 <!-- Interns Cards -->
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -116,11 +116,11 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Lama Zuaiter</div>
-                    <div class="app-description">Lama's creative vision is taking shape. Something awesome is on the way!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Countdown Timer</div>
+                    <div class="app-description">Set a countdown and watch it tick down!</div>
+                    <button class="app-button" onclick="showApp('countdownTimer')"> Launch App </button>
                 </div>
             </div>
 
@@ -129,32 +129,49 @@
                 <p><strong>Step 1:</strong> Fork/Clone this repository</p>
                 <p><strong>Step 2:</strong> Find your card and update it to "implemented" status</p>
                 <p><strong>Step 3:</strong> Add your app section to the HTML and implement your assigned functionality</p>
-                <p><strong>Step 4:</strong> Create a new branch and submit a Pull Request to be reviewd and merged</p>
+                <p><strong>Step 4:</strong> Create a new branch and submit a Pull Request to be reviewed and merged</p>
                 <p><strong>Step 5:</strong> See your app go live for everyone to enjoy!</p>
             </div>
         </div>
+    </div>
 
-        <!-- RAID Todo App -->
-        <div id="raid-app" class="todo-app">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
-            
-            <div class="todo-header">
-                <h2>RAID Todo List</h2>
-                <p>Stay organized and productive!</p>
-            </div>
-
-            <div class="todo-input-container">
-                <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..." onkeypress="handleKeyPress(event)">
-                <button class="add-button" onclick="addTodo()">Add Task</button>
-            </div>
-
-            <ul id="todo-list" class="todo-list"></ul>
+    <!-- RAID Todo App -->
+    <div id="raid-app" class="todo-app" style="display: none;">
+        <button class="back-button" onclick="showMain()">← Back to Hub</button>
+        
+        <div class="todo-header">
+            <h2>RAID Todo List</h2>
+            <p>Stay organized and productive!</p>
         </div>
 
+        <div class="todo-input-container">
+            <input type="datetime-local" id="target-datetime" />
+            <button class="add-button" onclick="addTodo()">Add Task</button>
+        </div>
+
+        <ul id="todo-list" class="todo-list"></ul>
+    </div>
+
+    <!-- Countdown Timer App -->
+    <div class="app-container">
+        <div id="countdownTimer-app" class="todo-app" style="display: none;">
+            <button class="back-button" onclick="showMain()">← Back</button>
+            <h2>Countdown Timer</h2>
+
+            <div class="countdown-container">
+                <label for="datetime-picker">Select Date & Time:</label>
+                <input type="datetime-local" id="datetime-picker" />
+
+                <div class="action-side" style="margin-top: 20px;">
+                    <button id="calculate-btn">Calculate</button>
+                    <div id="countdown-display" style="margin-top: 20px; font-size: 1.3rem;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
-
+    <script src="apps/countdown-timer/countdownTimer.js"></script>
 </body>
 </html>
