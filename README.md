@@ -15,7 +15,9 @@
    ```
 
 3. **Add Your Mini-App**  
-   - Create a new file at `apps/yourApp.js`;  (you can use your name)
+   - Create a new folder inside apps/ using your name or your app's name (e.g., apps/alaa/).
+   - Inside that folder, create your app entry point file, e.g., apps/alaa/yourApp.js.
+   - Place any assets (images, CSS, etc.) inside the same folder as needed.
    - In `index.html`, under the `<div class="apps-grid">` section, insert:
 
      ```html

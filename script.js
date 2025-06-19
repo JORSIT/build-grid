@@ -1,5 +1,11 @@
 // script.js
 
+// —— Navigation between “hub” and apps ——
+function showApp(appName) {
+  AppUtils.hide('main-view');
+  document.getElementById(`${appName}-app`).classList.add('active');
+}
+
 /**
  * Utility for interns to register new apps.
  */
