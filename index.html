@@ -82,14 +82,11 @@
                 </div>
 
                 <div class="app-card implemented">
-                <div class="status-badge">LIVE</div>
-                <div class="app-name">Quote Generator by Abd-AlGhani</div>
-                <div class="app-description">Generate uplifting quotes at a click.</div>
-                <button class="app-button" onclick="showApp('quote-generator')">
-                 Launch App
-                </button>
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Quote Generator by Abd-AlGhani</div>
+                    <div class="app-description">Generate uplifting quotes at a click.</div>
+                    <button class="app-button" onclick="showApp('quote-generator')">Launch App</button>
                 </div>
-
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -153,31 +150,28 @@
 
             <ul id="todo-list" class="todo-list"></ul>
         </div>
-        
-        <!-- Quote Generator App by Abdelghani Al-Ghoul -->
-       <div id="quote-generator-app" class="todo-app" style="display: none">
-       <button class="back-button" onclick="showMain()">← Back to Hub</button>
 
-       <div class="todo-header">
-       <h2>Quote Generator</h2>
-       <p>Get inspired with random quotes!</p>
-       </div>
+    </div>
+
+    <!-- Quote Generator App by Abd-AlGhani -->
+    <div id="quote-generator-app" class="todo-app" style="display:none;">
+        <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  
+        <div class="todo-header">
+            <h2>Quote Generator by Abd-AlGhani</h2>
+            <p>Generate uplifting quotes at a click.</p>
+        </div>
 
        <div class="todo-input-container">
-       <button class="add-button" id="generate-quote">Generate Quote</button>
+           <button id="generate-quote" class="add-button">Generate Quote</button>
        </div>
 
-       <div id="quote-container" class="todo-item" style="text-align:center; margin-top:20px;"></div>
-       </div>
-
-
+       <p id="quote-container" class="todo-list" style="min-height: 100px;"></p>
     </div>
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
-    <script src="apps/sam.js"></script>
     <script src="apps/quote-generator.js"></script>
-
 
 </body>
 </html>
