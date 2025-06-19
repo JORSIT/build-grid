@@ -2,8 +2,8 @@
 let targetDate = null;
 let countdownInterval = null;
 
-
-function showApp(appName) {
+function showApp(appName)
+ {
   document.querySelectorAll('.todo-app').forEach(app => {
     app.style.display = 'none';
   });
@@ -21,6 +21,14 @@ function showMain() {
   });
   document.getElementById('main-view').style.display = 'block';
 }
+
+function showCountdownTimer() {
+  document.querySelectorAll('.todo-app').forEach(app => {
+    app.style.display = 'none';
+  });
+  document.getElementById('countdown-timer-app').style.display = 'block';
+}
+
 
 
 function calculateCountdown() {
