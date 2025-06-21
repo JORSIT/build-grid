@@ -11,7 +11,7 @@
 }
 #quote-app .toggles{
     display: flex;
-    align-items: space-between;
+    flex-wrap: wrap;            
     justify-content: space-between;
     padding: 0.5rem 0.5rem;
 }
@@ -154,18 +154,56 @@
 
 /* Responsive */
 @media (max-width: 600px) {
-    .quote-container {
-        padding: 1.2rem 0.5rem 1rem 0.5rem;
+    #quote-app {
+        max-width: 98vw;
+        margin: 0.5rem auto;
+        padding: 0;
+    }
+    #quote-app .quote-container {
+        padding: 0.8rem 0.3rem 0.7rem 0.3rem;
+        margin-bottom: 1rem;
     }
     #quote-app .quote-box {
-        padding: 1.2rem 0.7rem 1rem 0.7rem;
+        padding: 0.8rem 0.5rem 0.7rem 0.5rem;
+        min-height: 70px;
+        font-size: 1em;
     }
-    #quote-text, #quote-app .arabic, .arabic-quote {
-        font-size: 1.2rem;
+    #quote-app #quote-text,
+    #quote-app .arabic,
+    .arabic-quote {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        word-break: break-word;
+        padding: 0 0.2rem;
     }
-    .btn-container button {
-        padding: 0.7rem 1.2rem;
-        font-size: 0.98rem;
+    #quote-app #quote-author {
+        font-size: 0.95rem;
+        margin-top: 0.3rem;
+        text-align: right;
+    }
+    #quote-app .btn-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        margin: 1rem 0 0 0;
+    }
+    #quote-app .btn-container button {
+        padding: 0.7rem 0.5rem;
+        font-size: 0.95rem;
+        min-width: unset;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    #quote-app .lang-indicator {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+        padding: 0.15rem 0.5rem;
+    }
+    .quote-toast {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+        bottom: 0.5rem;
     }
 }
 .quote-toast {
