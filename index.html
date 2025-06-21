@@ -95,12 +95,12 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Dania Jarbou</div>
-                    <div class="app-description">Dania is cooking up something special. Get ready for an amazing experience!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
-                </div>
+                         <div class="app-card implemented">
+                   <div class="status-badge">LIVE</div>
+                 <div class="app-name">Tip Splitter</div>
+                  <div class="app-description">Split your bill with tip among friends.</div>
+                 <button class="app-button" onclick="showApp('tip')">Launch App</button>
+                 </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -150,11 +150,25 @@
 
             <ul id="todo-list" class="todo-list"></ul>
         </div>
+         <!-- Dania's App // Tip Splitter -->
+         <div id="tip-app" class="todo-app" >
+     <button class="back-button" onclick="showMain()">← Back to Hub</button>
+
+     <h2>Tip Splitter</h2>
+  
+     <input id="bill-input" type="number" placeholder="Total Bill" />
+     <input id="tip-input" type="number" placeholder="Tip %" />
+      <input id="people-input" type="number" placeholder="Number of People" />
+  
+      <button id="calculate-btn">Calculate</button>
+  
+        <div id="result"   style="font-size: 1.5rem; font-weight: bold;" ></div>
 
     </div>
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
+    <script src="apps/tip.js"></script>
 
 </body>
 </html>
