@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
 </head>
 <body>
     <div class="container">
@@ -25,11 +26,15 @@
 
 
                 <!-- Interns Cards -->
-                <div class="app-card not-implemented">
+                <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
-                    <div class="app-name">Yazan Alqasem</div>
-                    <div class="app-description">Live-render Markdown as you type.</div>
-                    <button class="app-button" onclick="showApp('gmarkdown')">Launch App</button>
+                    <div class="app-name">Markdown Previewer</div>
+                    <div class="app-description">
+                        Live-render GitHub-flavored Markdown as you type.
+                    </div>
+                    <button class="app-button" onclick="showApp('markdown')">
+                        Launch App
+                    </button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -152,45 +157,29 @@
         </div>
 
       <!-- Yazan's Markdown App -->
-      <div id="gmarkdown-app" class="todo-app">
-        <button class="back-button" onclick="showMain()">
-          ← Back to Hub
-        </button>
-        <div class="todo-header">
-          <h2>Markdown Previewer</h2>
-          <p>Live-render Markdown as you type.</p>
+      <div id="markdown-app" class="markdown-app">
+        <button class="back-button" onclick="showMain()">← Back to Hub</button>
+
+        <div class="md-header">
+            <h2>Markdown Previewer</h2>
+            <p>Live-render GitHub-flavored Markdown as you type.</p>
         </div>
-        <div
-          class="todo-input-container"
-          style="flex-direction: column; gap: 10px"
-        >
-          <textarea
+
+        <div class="md-input-section">
+            <textarea
             id="markdown-input"
-            class="todo-input"
+            class="md-editor"
             rows="8"
             placeholder="Enter Markdown here…"
-          ></textarea>
+            ></textarea>
         </div>
-        <div
-          class="todo-input-container"
-          style="flex-direction: column"
-        >
-          <label
-            for="markdown-output"
-            style="font-weight: bold; margin-bottom: 5px"
-            >Preview:</label
-          >
-          <div
+
+        <div class="md-preview-section">
+            <label for="markdown-output" class="md-label">Preview:</label>
+            <div
             id="markdown-output"
-            class="markdown-output"
-            style="
-              background: #fff;
-              border: 1px solid #ddd;
-              padding: 10px;
-              min-height: 100px;
-              overflow: auto;
-            "
-          ></div>
+            class="md-preview markdown-body"
+            ></div>
         </div>
       </div>
 
@@ -214,8 +203,6 @@
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
-    <script src="apps/sam.js"></script>
     <script src="apps/gmarkdownApp.js"></script>
-
 </body>
 </html>
