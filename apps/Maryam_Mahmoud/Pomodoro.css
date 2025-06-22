@@ -1,0 +1,95 @@
+/* Pomodoro App Styling */
+#pomodoro-app {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#pomodoro-app h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#timer {
+    font-size: 64px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin: 20px 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#start {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#pause {
+    background-color: #FF9800;
+    color: white;
+}
+
+#reset {
+    background-color: #F44336;
+    color: white;
+}
+
+.controls button:hover {
+    opacity: 0.9;
+}
+
+#cycles {
+    font-weight: bold;
+    font-size: 18px;
+    color: #555;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #e1d5f1;
+    background-color: rgb(97, 58, 160);
+    border: 2px solid #b187db;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color: #531294;
+    color: rgb(240, 214, 214);
+}
