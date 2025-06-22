@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
 </head>
 <body>
@@ -27,15 +26,11 @@
 
 
                 <!-- Interns Cards -->
-                <div class="app-card implemented">
-                    <div class="status-badge">LIVE</div>
-                    <div class="app-name">Markdown Previewer</div>
-                    <div class="app-description">
-                        Live-render GitHub-flavored Markdown as you type.
-                    </div>
-                    <button class="app-button" onclick="showApp('markdown')">
-                        Launch App
-                    </button>
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Yazan Alqasem</div>
+                    <div class="app-description">Yazan's innovative application is coming soon. Stay tuned for something amazing!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
                 <div class="app-card implemented">
@@ -157,33 +152,6 @@
             <ul id="todo-list" class="todo-list"></ul>
         </div>
 
-        <!-- Yazan's Markdown App -->
-        <div id="markdown-app" class="markdown-app">
-          <button class="back-button" onclick="showMain()">← Back to Hub</button>
-
-          <div class="md-header">
-              <h2>Markdown Previewer</h2>
-              <p>Live-render GitHub-flavored Markdown as you type.</p>
-          </div>
-
-          <div class="md-input-section">
-              <textarea
-              id="markdown-input"
-              class="md-editor"
-              rows="8"
-              placeholder="Enter Markdown here…"
-              ></textarea>
-          </div>
-
-          <div class="md-preview-section">
-              <label for="markdown-output" class="md-label">Preview:</label>
-              <div
-              id="markdown-output"
-              class="md-preview markdown-body"
-              ></div>
-          </div>
-        </div>
-
         <!-- Yamen Tahseen's Quote App -->
         <div id="quote-app" class="todo-app">
             <div class="toggles">
@@ -215,11 +183,12 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
-    <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
     <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+
 </body>
 </html>
