@@ -39,6 +39,13 @@ function initPreviewer() {
     return;
   }
 
+  const backButton = document.querySelector('#markdown-app .back-button');
+  if (backButton) {
+    backButton.addEventListener('click', () => {
+      document.getElementById('markdown-app').classList.remove('active');
+    });
+  }
+
   AppUtils.setValue('markdown-input', STARTER_MD);
   renderPreview();
   inEl.addEventListener('input', renderPreview);
