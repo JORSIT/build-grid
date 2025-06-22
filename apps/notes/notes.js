@@ -36,3 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') addNote();
     });
 });
+// لاظهار التطبيق او الاخفاء
+function showApp(appName) {
+  AppUtils.hide('main-view');
+
+  // اخفاء جميع التطبيقات
+  const apps = document.querySelectorAll('.todo-app');
+  apps.forEach(app => app.style.display = 'none');
+
+  // عرض التطبيق المطلوب
+  const appElement = document.getElementById(`${appName}-app`);
+  if (appElement) {
+    appElement.style.display = 'block';
+  }
+}
+function showMain() {
+  AppUtils.show('main-view');
+
+  // إخفاء جميع التطبيقات
+  const apps = document.querySelectorAll('.todo-app');
+  apps.forEach(app => app.style.display = 'none');
+}
+
