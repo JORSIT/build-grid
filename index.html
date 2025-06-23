@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="apps/mnazzal/jadara.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-yu9sy2…(truncated)…"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <div class="container">
@@ -49,7 +54,7 @@
                     <button class="app-button" onclick="showApp('jadara')">
                         Launch App
                     </button>
-                    </div>
+                </div>
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
                     <div class="app-name">Osama AbuHammad</div>
@@ -133,9 +138,26 @@
             </div>
             <ul id="todo-list" class="todo-list"></ul>
         </div>
+        <!-- ▾▾▾ NEW: Jadara Weather Status app container ▾▾▾ -->
+        <div id="jadara-app" class="jadara-app">
+        <header class="weather-bar">
+            <button class="back-button" onclick="showMain()">← Back to Hub</button>
+            <h2 class="title">Jadara University Weather Status</h2>
+            <button id="weather-refresh" class="icon-btn" aria-label="Refresh" title="Refresh">↻</button>
+        </header>
+
+        <p id="weather-updated" class="updated">Loading…</p>
+        <div id="weather-body" class="weather-body"></div>
+        </div>
+        <!-- ▴▴▴ END Jadara Weather Status ▴▴▴ -->
+
     </div>
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
     <script src="apps/mnazzal/jadaraApp.js"></script>
 </body>
 </html>
+
+
+
+

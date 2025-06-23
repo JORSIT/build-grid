@@ -1,155 +1,109 @@
-//
-// jadaraApp.js – Jadara University Weather Status App
-// Author: Mohammad Nazzal
-//
-//
-// Last Updated: 6/22/2025
-
-// Initialize the app states
-let weather = null; // holds the latest observation
+// —— Globals & State ——
+let weather = null;
 const COORDS = { lat: 32.422398, lon: 35.947281 }; // Jadara (Irbid)
-const AUTO_REFRESH_MIN = 15; // how often to refresh automatically in minutes
+const AUTO_REFRESH_MIN = 15;
 let refreshTimer = null;
 
-// Description of weather codes (from Open-Meteo API docs):
+// —— Navigation between “hub” and apps ——
+function showApp(appName) {
+  AppUtils.hide('main-view');
+  document.getElementById(`${appName}-app`).classList.add('active');
+}
+
+function showMain() {
+  AppUtils.show('main-view');
+  document.querySelectorAll('.jadara-app').forEach(app =>
+    app.classList.remove('active')
+  );
+}
+
+// —— Weather Code Helpers ——
 const WEATHER_CODE = {
-  0: 'Clear sky', 1: 'Mainly clear', 2: 'Partly cloudy', 3: 'Overcast',
-  45: 'Fog', 48: 'Depositing rime fog',
-  51: 'Light drizzle', 53: 'Moderate drizzle', 55: 'Dense drizzle',
-  56: 'Light freezing drizzle', 57: 'Dense freezing drizzle',
-  61: 'Slight rain', 63: 'Moderate rain', 65: 'Heavy rain',
-  66: 'Light freezing rain', 67: 'Heavy freezing rain',
-  71: 'Slight snow', 73: 'Moderate snow', 75: 'Heavy snow',
-  80: 'Rain showers (slight)', 81: 'Rain showers (moderate)', 82: 'Rain showers (violent)',
-  95: 'Thunderstorm', 96: 'Thunderstorm & hail', 99: 'Heavy thunderstorm & hail'
+  0:'clear sky',1:'mainly clear',2:'partly cloudy',3:'overcast',
+  45:'fog',48:'depositing rime fog',
+  51:'light drizzle',53:'moderate drizzle',55:'dense drizzle',
+  56:'light freezing drizzle',57:'dense freezing drizzle',
+  61:'slight rain',63:'moderate rain',65:'heavy rain',
+  66:'light freezing rain',67:'heavy freezing rain',
+  71:'slight snow',73:'moderate snow',75:'heavy snow',
+  80:'rain showers (slight)',81:'rain showers (moderate)',82:'rain showers (violent)',
+  95:'thunderstorm',96:'thunderstorm & hail',99:'heavy thunderstorm & hail'
 };
 
-const describe = code => WEATHER_CODE[code] ?? `Code ${code}`;
+const ICON_CLASS = {
+  sun     : [0, 1],
+  cloud   : [2, 3],
+  smog    : [45, 48],
+  showers : [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
+  snow    : [71, 73, 75],
+  bolt    : [95, 96, 99]
+};
 
-const ICONS_DIR = 'apps/mnazzal/icons/';     // <── adjust once here if you move the folder
-
-// Build full icon path in one place
-const icon = name => `${ICONS_DIR}${name}.png`;
-
-// Loading css
-function loadCSS() {
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = 'apps/mnazzal/jadara.css'; // adjust path if needed
-  document.head.appendChild(link);
-}
-
-// Map Open-Meteo weather codes → icon path
-function getWeatherIconPath(code) {
-  if ([0, 1].includes(code)) return icon('sun');                 // clear / mainly clear
-  if ([2, 3].includes(code)) return icon('cloudy');              // partly / overcast
-  if ([45, 48].includes(code)) return icon('fog');               // fog
-  if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82].includes(code))
-    return icon('rain');                                         // any drizzle / rain
-  if ([71, 73, 75].includes(code)) return icon('snowflake');     // snow
-  if ([95, 96, 99].includes(code)) return icon('thunderstorm');  // thunder
-  return icon('sun');                                            // fallback
-}
-
-// DOM Construction & Rendering
-function injectContainer() {
-  if (document.getElementById('jadara-app')) return;
-
-  const container = AppUtils.createElement('div', 'todo-app');
-  container.id = 'jadara-app';
-  container.innerHTML = `
-    <button class="back-button" onclick="showMain()">← Back to Hub</button>
-    <div class="weather-header">
-      <h2>Jadara University Weather Status</h2>
-      <p id="weather-updated">Loading…</p>
-    </div>
-    <div id="weather-body" class="weather-body"></div>
-    <button id="weather-refresh" class="refresh-button">Refresh ↻</button>
-  `;
-  document.body.appendChild(container);
-}
-
-// Render Function
-function render() {
-  const body = document.getElementById('weather-body');
-  if (!body) return;
-  body.innerHTML = '';
-
-  if (!weather) {
-    body.appendChild(AppUtils.createElement('p', '', 'No data available'));
-    return;
+function codeToIcon(code) {
+  for (const [fa, list] of Object.entries(ICON_CLASS)) {
+    if (list.includes(code)) return `fa-${fa === 'showers' ? 'cloud-showers-heavy' : fa}`;
   }
-
-  const iconPath = getWeatherIconPath(weather.code);
-
-  const card = AppUtils.createElement(
-    'div',
-    'weather-card two-column',
-    `
-      <div class="weather-icon">
-        <img src="${iconPath}" alt="weather icon" width="80" height="80">
-      </div>
-      <div class="weather-info">
-        <div class="temp">${weather.temp}°C</div>
-        <div class="desc">${weather.desc}</div>
-        <div class="wind">Wind ${weather.wind} m/s</div>
-      </div>
-    `
-  );
-
-  body.appendChild(card);
-
-  const ts = document.getElementById('weather-updated');
-  if (ts) ts.textContent = `Last updated: ${new Date(weather.time).toLocaleString()}`;
+  return 'fa-sun'; // fallback
 }
 
-// API Fetching from api.open-meteo.com
+// —— Render Weather Data ——
+function renderWeather() {
+  const container = document.getElementById('weather-body');
+  if (!container) return;
+
+  container.innerHTML = weather
+    ? `
+      <div class="weather-card">
+        <div class="weather-icon">
+          <i class="fa-solid ${codeToIcon(weather.code)}"></i>
+        </div>
+        <div class="weather-info">
+          <div class="temp">${weather.temp}°C</div>
+          <div class="desc">${WEATHER_CODE[weather.code]}</div>
+          <div class="wind">Wind ${weather.wind} m/s</div>
+        </div>
+      </div>`
+    : '<p>No data available</p>';
+
+  const updated = document.getElementById('weather-updated');
+  if (updated) {
+    updated.textContent = `Last updated: ${new Date(weather?.time || Date.now()).toLocaleString()}`;
+  }
+}
+
+// —— Fetch Weather Data ——
 async function fetchWeather() {
-  const ts = document.getElementById('weather-updated');
-  if (ts) ts.textContent = 'Updating…';
+  const updated = document.getElementById('weather-updated');
+  if (updated) updated.textContent = 'Updating…';
+
   try {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${COORDS.lat}&longitude=${COORDS.lon}&current_weather=true&timezone=auto`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error(res.statusText);
     const data = await res.json();
     const cw = data.current_weather;
+
     weather = {
       temp: cw.temperature,
       wind: cw.windspeed,
-      desc: describe(cw.weathercode),
       code: cw.weathercode,
       time: cw.time
     };
-    render();
+
+    renderWeather();
   } catch (err) {
     console.error(err);
-    if (ts) ts.textContent = 'Failed to load.';
+    if (updated) updated.textContent = 'Failed to load.';
   }
 }
 
-// Auto refresh weather status every AUTO_REFRESH_MIN minutes
-function startAutoRefresh() {
-  clearInterval(refreshTimer);
-  refreshTimer = setInterval(fetchWeather, AUTO_REFRESH_MIN * 60 * 1000);
-}
-
-// Bootstraping
+// —— Bootstrapping ——
 document.addEventListener('DOMContentLoaded', () => {
-  loadCSS();
-  injectContainer();
-  AppUtils.onClick('weather-refresh', fetchWeather);
-
-  const cardBtn = Array.from(document.querySelectorAll('.app-card'))
-    .find(card => card.querySelector('.app-name')?.textContent.trim() === 'Jadara Weather Status')
-    ?.querySelector('.app-button');
-
-  if (cardBtn) cardBtn.onclick = () => showApp('jadara');
+  document.getElementById('weather-refresh')?.addEventListener('click', fetchWeather);
 
   fetchWeather();
-  startAutoRefresh();
+  refreshTimer = setInterval(fetchWeather, AUTO_REFRESH_MIN * 60 * 1000);
 
   if (typeof addNewApp === 'function') {
     addNewApp('Jadara Weather Status', 'Weather loaded');
   }
 });
-
