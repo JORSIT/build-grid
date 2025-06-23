@@ -72,3 +72,35 @@
 .note-item button:hover {
   background-color: #c0392b;
 }
+.note-item {
+  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.note-text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.note-item input[type="text"] {
+  display: none;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.note-item button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.note-item button:hover {
+  background-color: #2980b9;
+}
