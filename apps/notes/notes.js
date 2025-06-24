@@ -59,13 +59,44 @@ function addNote() {
 }
 
 function deleteNote(id) {
-  const confirmDelete = confirm("Are you sure you want to delete this note?");
-  if (!confirmDelete) return;
+  // إنشاء نافذة منبثقة
+  const confirmPopup = document.createElement('div');
+  confirmPopup.className = 'confirm-popup';
 
-  notes = notes.filter(note => note.id !== id);
-  renderNotes();
-  showAlert('Note deleted!');
+  const content = document.createElement('div');
+  content.className = 'popup-content';
+
+  const message = document.createElement('p');
+  message.textContent = 'Are you sure you want to delete this note?';
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'popup-buttons';
+
+  const confirmButton = document.createElement('button');
+  confirmButton.textContent = 'Yes';
+  confirmButton.onclick = () => {
+    notes = notes.filter(note => note.id !== id);
+    renderNotes();
+    showAlert('Note deleted!');
+    document.body.removeChild(confirmPopup);
+  };
+
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = 'Cancel';
+  cancelButton.onclick = () => {
+    document.body.removeChild(confirmPopup);
+  };
+
+  buttonContainer.appendChild(confirmButton);
+  buttonContainer.appendChild(cancelButton);
+
+  content.appendChild(message);
+  content.appendChild(buttonContainer);
+  confirmPopup.appendChild(content);
+
+  document.body.appendChild(confirmPopup);
 }
+
 
 function startEditing(id) {
   // إخفاء النص، إظهار input
@@ -129,12 +160,20 @@ function showMain() {
   apps.forEach(app => app.style.display = 'none');
 }
 function showAlert(message) {
-  const alertBox = document.getElementById('note-alert');
-  alertBox.textContent = message;
-  alertBox.style.display = 'block';
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
 
-  // إخفاء التنبيه بعد 3 ثواني
+  document.body.appendChild(toast);
+
+  // إظهار التوست
   setTimeout(() => {
-    alertBox.style.display = 'none';
+    toast.classList.add('show');
+  }, 100);
+
+  // إخفاء التوست بعد 3 ثواني
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => document.body.removeChild(toast), 300);
   }, 3000);
 }
