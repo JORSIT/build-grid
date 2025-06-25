@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
 </head>
 <body>
+   
+    <!-- Toast alert at top of body, not inside .container -->
+    <div id="note-alert" class="note-alert" style="display: none;"></div>
+
     <div class="container">
         <div class="header">
             <h1>Collaborative Apps Hub</h1>
@@ -160,14 +164,26 @@
 
             <ul id="todo-list" class="todo-list"></ul>
         </div>
-        <div id="notes-app" class="todo-app" style="display: none">
+        <!-- Abdullah AbuSoboh's Notes App -->
+<div id="notes-app" class="todo-app" style="display: none">
   <button class="back-button" onclick="showMain()">← Back</button>
   <h2>Notes App</h2>
 
   <input type="text" id="note-input" placeholder="Write a note..." />
   <button id="add-note">Add Note</button>
- <div id="notes-list"></div>
- <div id="note-alert" class="note-alert" style="display:none;"></div>
+
+  <div id="notes-list"></div>
+
+  <!-- Custom confirm popup -->
+  <div id="confirm-popup" class="confirm-popup" style="display: none;">
+    <div class="popup-content">
+      <p id="confirm-message">Are you sure you want to delete this note?</p>
+      <div class="popup-buttons">
+        <button id="confirm-yes">Yes</button>
+        <button id="confirm-no">No</button>
+      </div>
+    </div>
+  </div>
 </div>
         <!-- Yazan's Markdown App -->
         <div id="markdown-app" class="markdown-app">
@@ -229,18 +245,7 @@
         </div>
     </div>
 
-
     </div>
-
-    <div id="confirm-popup" class="confirm-popup" style="display: none;">
-  <div class="popup-content">
-    <p id="confirm-message">Are you sure you want to delete this note?</p>
-    <div class="popup-buttons">
-      <button id="confirm-yes">Yes</button>
-      <button id="confirm-no">No</button>
-    </div>
-  </div>
-</div>
 
     <script src="script.js"></script>
     <script src="apps/notes/notes.js"></script>
