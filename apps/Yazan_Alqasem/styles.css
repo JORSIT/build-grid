@@ -1,0 +1,76 @@
+.markdown-app {
+  display: none;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-app.active {
+  display: block;
+}
+
+.markdown-back-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.md-header {
+  margin-bottom: 1rem;
+}
+.md-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.md-header p {
+  margin: 0.25rem 0 0;
+  color: #666;
+}
+
+.md-input-section,
+.md-preview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.md-editor {
+  width: 100%;
+  min-height: 8rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.md-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.md-preview {
+  width: 100%;
+  padding: 1rem;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 8rem;
+  overflow: auto;
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.markdown-body img,
+.markdown-body table {
+  max-width: 100%;
+}
