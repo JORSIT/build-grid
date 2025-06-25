@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Build Grid</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="apps-grid">
+    <div class="app-card implemented">
+      <span class="live-badge">LIVE</span>
+      <h3>Color Palette Picker</h3>
+      <p>Generate beautiful random color palettes.</p>
+      <button onclick="showApp('palette')">Launch App</button>
+    </div>
+  </div>
+
+  <div id="palette-app" class="todo-app hidden">
+    <button onclick="showMain()">⬅ Back</button>
+    <h2>Color Palette Picker</h2>
+    <div id="palette-container"></div>
+    <button id="generate-btn">Generate Palette</button>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="apps/palette.js"></script>
+</body>
+</html>
