@@ -1,0 +1,31 @@
+
+#tip-app {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+#tip-app input {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+
+#tip-app button:not(.back-button) {
+  padding: 10px;
+  font-weight: bold;
+  background-color: #0088cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#tip-app button:not(.back-button):hover {
+  background-color: #213ca9;
+}

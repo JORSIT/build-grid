@@ -1,46 +1,48 @@
-
 let totalBill = 0;
 let tipPercent = 0;
 let numberOfPeople = 1;
-/**
- * Calculates the tip amount, total with tip, and how much each person should pay,
- * then updates the result div with this information.
- */
 
+/**
+ * Calculates and displays the amount each person should pay.
+ */
 function renderTipSplitter() {
   const resultDiv = document.getElementById('result');
   if (!resultDiv) return;
-
 
   const tipAmount = totalBill * (tipPercent / 100);
   const totalWithTip = totalBill + tipAmount;
   const perPerson = numberOfPeople > 0 ? totalWithTip / numberOfPeople : 0;
 
   resultDiv.textContent = `Each person pays: $${perPerson.toFixed(2)}`;
-  
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
- 
-//attach click event to the calculate buttn
-  
-  AppUtils.onClick('calculate-btn', () => {
-        // Get the input elements for bill, tip percent, and number of people
+  const billInput = document.getElementById('bill-input');
+  const tipInput = document.getElementById('tip-input');
+  const peopleInput = document.getElementById('people-input');
+  const resultDiv = document.getElementById('result');
+  const resetBtn = document.getElementById("reset-btn");
 
-    const billInput = document.getElementById('bill-input');
-    const tipInput = document.getElementById('tip-input');
-    const peopleInput = document.getElementById('people-input');
-      // Parse and update the global variables with user input values
+  // ✅ Calculate button
+  AppUtils.onClick('calculate-btn', () => {
     totalBill = parseFloat(billInput.value) || 0;
     tipPercent = parseFloat(tipInput.value) || 0;
     numberOfPeople = parseInt(peopleInput.value) || 1;
-    // Call function to calculate and render the tip splitter result
-    renderTipSplitter();
 
+    renderTipSplitter();
   });
 
-  // Support pressing Enter inside any of the input fields to trigger calculation
+  // ✅ Reset button
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      billInput.value = "";
+      tipInput.value = "";
+      peopleInput.value = "";
+      resultDiv.innerHTML = "";
+    });
+  }
+
+  // ✅ Support pressing Enter to calculate
   ['bill-input', 'tip-input', 'people-input'].forEach(id => {
     const input = document.getElementById(id);
     if (input) {
@@ -52,4 +54,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
-}); 
+});
