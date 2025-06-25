@@ -10,6 +10,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-yu9sy2…(truncated)…"
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
+    <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
 </head>
 <body>
     <div class="container">
@@ -35,11 +37,11 @@
                     <div class="app-description">Yazan's innovative application is coming soon. Stay tuned for something amazing!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Yamen Tahseen</div>
-                    <div class="app-description">Get ready to experience Yamen's creative coding skills in action.</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Random Quote Generator</div>
+                    <div class="app-description">Get inspired with uplifting quotes in English and Arabic.</div>
+                    <button class="app-button" onclick="showApp('quote')">Launch App</button>
                 </div>
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -140,21 +142,82 @@
         </div>
         <!-- ▾▾▾ NEW: Jadara Weather Status app container ▾▾▾ -->
         <div id="jadara-app" class="jadara-app">
-        <header class="weather-bar">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
-            <h2 class="title">Jadara University Weather Status</h2>
-            <button id="weather-refresh" class="icon-btn" aria-label="Refresh" title="Refresh">↻</button>
-        </header>
+                <header class="weather-bar">
+                    <button class="back-button icon-btn back" onclick="showMain()">←</button>
+                    <h2 class="title">Jadara University Weather Status</h2>
+                    <button id="weather-refresh" class="icon-btn" aria-label="Refresh" title="Refresh">↻</button>
+                </header>
 
-        <p id="weather-updated" class="updated">Loading…</p>
-        <div id="weather-body" class="weather-body"></div>
+                <p id="weather-updated" class="updated">Loading…</p>
+                <div id="weather-body" class="weather-body"></div>
+
         </div>
         <!-- ▴▴▴ END Jadara Weather Status ▴▴▴ -->
+        <!-- Yazan's Markdown App -->
+        <div id="markdown-app" class="markdown-app">
+          <button class="back-button" onclick="showMain()">← Back to Hub</button>
 
+          <div class="md-header">
+              <h2>Markdown Previewer</h2>
+              <p>Live-render GitHub-flavored Markdown as you type.</p>
+          </div>
+
+          <div class="md-input-section">
+              <textarea
+              id="markdown-input"
+              class="md-editor"
+              rows="8"
+              placeholder="Enter Markdown here…"
+              ></textarea>
+          </div>
+
+          <div class="md-preview-section">
+              <label for="markdown-output" class="md-label">Preview:</label>
+              <div
+              id="markdown-output"
+              class="md-preview markdown-body"
+              ></div>
+          </div>
+        </div>
+
+        <!-- Yamen Tahseen's Quote App -->
+        <div id="quote-app" class="todo-app">
+            <div class="toggles">
+                <button class="back-button" onclick="showMain()">← Back to Hub</button>
+                <div class="lang-toggle">
+                    <label for="lang-select">Language:</label>
+                    <select id="lang-select" onchange="switchUILang(this.value)">
+                        <option value="en">English</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+            <div class="todo-header">
+                 <h2 id="quote-heading">Random Quote Generator</h2>
+                 <p id="quote-subheading">Get inspired with uplifting quotes in English and Arabic.</p>
+            </div>
+            <div class="quote-container">
+                <div class="lang-indicator" id="type-indicator">English</div>
+                <div class="quote-box">
+                    <div id="loader"></div>
+                    <p id="quote-text"></p>
+                    <p id="quote-author"></p>
+                </div>
+                <div class="btn-container">
+                    <button id="english-btn">🔤 English Quotes</button>
+                    <button id="arabic-btn">🌐 Arabic Quotes</button>
+                    <button id="quran-btn">📖 Qur’an Verses</button>
+                    <button id="copy-btn">🔄 Copy Quote to clipboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
     <script src="apps/mnazzal/jadaraApp.js"></script>
+    <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
+    <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
 </body>
 </html>
 

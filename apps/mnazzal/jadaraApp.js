@@ -19,24 +19,24 @@ function showMain() {
 
 // —— Weather Code Helpers ——
 const WEATHER_CODE = {
-  0:'clear sky',1:'mainly clear',2:'partly cloudy',3:'overcast',
-  45:'fog',48:'depositing rime fog',
-  51:'light drizzle',53:'moderate drizzle',55:'dense drizzle',
-  56:'light freezing drizzle',57:'dense freezing drizzle',
-  61:'slight rain',63:'moderate rain',65:'heavy rain',
-  66:'light freezing rain',67:'heavy freezing rain',
-  71:'slight snow',73:'moderate snow',75:'heavy snow',
-  80:'rain showers (slight)',81:'rain showers (moderate)',82:'rain showers (violent)',
-  95:'thunderstorm',96:'thunderstorm & hail',99:'heavy thunderstorm & hail'
+  0: 'clear sky', 1: 'mainly clear', 2: 'partly cloudy', 3: 'overcast',
+  45: 'fog', 48: 'depositing rime fog',
+  51: 'light drizzle', 53: 'moderate drizzle', 55: 'dense drizzle',
+  56: 'light freezing drizzle', 57: 'dense freezing drizzle',
+  61: 'slight rain', 63: 'moderate rain', 65: 'heavy rain',
+  66: 'light freezing rain', 67: 'heavy freezing rain',
+  71: 'slight snow', 73: 'moderate snow', 75: 'heavy snow',
+  80: 'rain showers (slight)', 81: 'rain showers (moderate)', 82: 'rain showers (violent)',
+  95: 'thunderstorm', 96: 'thunderstorm & hail', 99: 'heavy thunderstorm & hail'
 };
 
 const ICON_CLASS = {
-  sun     : [0, 1],
-  cloud   : [2, 3],
-  smog    : [45, 48],
-  showers : [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
-  snow    : [71, 73, 75],
-  bolt    : [95, 96, 99]
+  sun: [0, 1],
+  cloud: [2, 3],
+  smog: [45, 48],
+  showers: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
+  snow: [71, 73, 75],
+  bolt: [95, 96, 99]
 };
 
 function codeToIcon(code) {
@@ -53,7 +53,8 @@ function renderWeather() {
 
   container.innerHTML = weather
     ? `
-      <div class="weather-card">
+    <div class="weather-card">
+      <div class="weather-left">
         <div class="weather-icon">
           <i class="fa-solid ${codeToIcon(weather.code)}"></i>
         </div>
@@ -62,12 +63,27 @@ function renderWeather() {
           <div class="desc">${WEATHER_CODE[weather.code]}</div>
           <div class="wind">Wind ${weather.wind} m/s</div>
         </div>
-      </div>`
+      </div>
+      <div class="weather-image"></div>
+    </div>`
     : '<p>No data available</p>';
 
   const updated = document.getElementById('weather-updated');
   if (updated) {
     updated.textContent = `Last updated: ${new Date(weather?.time || Date.now()).toLocaleString()}`;
+  }
+
+  // === Set Background based on Time ===
+  const hour = new Date(weather.time).getHours(); // hour from weather.time (UTC)
+  const backgroundImage = (hour >= 18 || hour < 6)
+    ? "url('apps/mnazzal/images/JadaraNight.png')"
+    : "url('apps/mnazzal/images/JadaraMorning.jpg')";
+
+  const appContainer = document.querySelector('.weather-card');
+  if (appContainer) {
+    appContainer.style.backgroundImage = backgroundImage;
+    appContainer.style.backgroundRepeat = 'no-repeat';
+    appContainer.style.backgroundSize = 'cover';
   }
 }
 
