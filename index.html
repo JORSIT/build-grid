@@ -58,13 +58,13 @@
                     <div class="app-description">Mohammad's application is in development. Exciting features await!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
-
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Osama AbuHammad</div>
-                    <div class="app-description">Osama is crafting a unique digital experience. Coming soon!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                <div class="status-badge">LIVE</div>
+                <div class="app-name">Color Palette Picker</div>
+                <div class="app-description">Generate beautiful random color palettes!</div>
+                <button class="app-button" onclick="showApp('colorPicker')">Launch App</button>
                 </div>
+
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -215,11 +215,28 @@
                 </div>
             </div>
         </div>
+        <!-- osama abuhammad colorPicker-app -->
+        <div id="colorPicker-app" class="todo-app">
+        <button class="back-button" onclick="showMain()">← Back to Hub</button>
+
+        <div class="cp-header">
+        <h2>Color Palette Picker</h2>
+        <p>Generate beautiful random color palettes!</p>
+         </div>
+          <div id="palette-container" class="palette-grid">
+        
     </div>
+
+  <button id="generate-btn" class="generate-button">Generate Palette</button>
+</div>
+
+         
 
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
     <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
     <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+    <script src="apps/colorPicker.js"></script>
+
 </body>
 </html>
