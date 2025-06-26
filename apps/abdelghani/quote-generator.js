@@ -9,15 +9,6 @@ const quotes = [ // Array of quotes to pick from
   "Success is not in what you have, but who you are. - Bo Bennett"
 ];
 
-function showApp(appName) { // Show selected app and hide others
-  AppUtils.hide('main-view');
-  AppUtils.hide('raid-app');
-  AppUtils.hide('quote-generator-app');
-  if (appName === 'quote-generator') AppUtils.show('quote-generator-app');
-  else if (appName === 'raid') AppUtils.show('raid-app');
-  else AppUtils.show('main-view');
-}
-
 function showMain() { // Show main hub and hide apps
   AppUtils.hide('raid-app');
   AppUtils.hide('quote-generator-app');

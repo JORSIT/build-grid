@@ -304,6 +304,15 @@ body {
     margin-bottom: 10px;
 }
 
+.quote-item {
+  min-height: 100px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  padding: 10px;
+  color: #333;
+}
+
+
 @media (max-width: 768px) {
     .header h1 {
         font-size: 2rem;
