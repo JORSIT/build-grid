@@ -28,8 +28,8 @@
                 <div class="app-card not-implemented">
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">Yazan Alqasem</div>
-                    <div class="app-description">Run Python code in your browser using WebAssembly</div>
-                    <button class="app-button" onclick="showApp('pyrepl')">Launch App</button>
+                    <div class="app-description">Live-render Markdown as you type.</div>
+                    <button class="app-button" onclick="showApp('gmarkdown')">Launch App</button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -151,74 +151,46 @@
             <ul id="todo-list" class="todo-list"></ul>
         </div>
 
-      <!-- Yazan's Pyrepl App -->
-      <div id="pyrepl-app" class="todo-app">
-        <button class="back-button" onclick="showMain()">← Back to Hub</button>
+      <!-- Yazan's Markdown App -->
+      <div id="gmarkdown-app" class="todo-app">
+        <button class="back-button" onclick="showMain()">
+          ← Back to Hub
+        </button>
         <div class="todo-header">
-          <h2>PyREPL</h2>
-          <p>Run Python code in your browser using WebAssembly</p>
-        </div>
-        <div class="todo-input-container">
-          <input
-            type="text"
-            id="pyrepl-package"
-            class="todo-input"
-            placeholder="Install package (e.g., numpy, matplotlib)"
-            style="width: 100%"
-          />
-          <button
-            class="add-button"
-            id="pyrepl-install-btn"
-            style="background: #ff9800"
-          >
-            Install
-          </button>
+          <h2>Markdown Previewer</h2>
+          <p>Live-render Markdown as you type.</p>
         </div>
         <div
           class="todo-input-container"
           style="flex-direction: column; gap: 10px"
         >
           <textarea
-            id="pyrepl-input"
-            class="todo-input"
-            rows="6"
-            placeholder="Enter Python code..."
-            style="
-              width: 100%;
-              resize: vertical;
-              font-family: 'Courier New', monospace;
-            "
-          ></textarea>
-          <button
-            class="add-button"
-            id="pyrepl-run-btn"
-            style="align-self: flex-end"
-          >
-            Run Code
-          </button>
-        </div>
-        <div style="margin-bottom: 15px">
-          <label
-            style="
-              display: block;
-              margin-bottom: 5px;
-              font-weight: bold;
-              color: #333;
-            "
-            >Output:</label
-          >
-          <textarea
-            id="pyrepl-output"
+            id="markdown-input"
             class="todo-input"
             rows="8"
-            readonly
-            style="
-              width: 100%;
-              background: #f8f9fa;
-              font-family: 'Courier New', monospace;
-              border: 2px solid #ddd;
-            "
+            placeholder="Enter Markdown here…"
           ></textarea>
+        </div>
+        <div
+          class="todo-input-container"
+          style="flex-direction: column"
+        >
+          <label
+            for="markdown-output"
+            style="font-weight: bold; margin-bottom: 5px"
+            >Preview:</label
+          >
+          <div
+            id="markdown-output"
+            class="markdown-output"
+            style="
+              background: #fff;
+              border: 1px solid #ddd;
+              padding: 10px;
+              min-height: 100px;
+              overflow: auto;
+            "
+          ></div>
         </div>
       </div>
 
@@ -243,6 +215,7 @@
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
     <script src="apps/sam.js"></script>
+    <script src="apps/gmarkdownApp.js"></script>
 
 </body>
 </html>
