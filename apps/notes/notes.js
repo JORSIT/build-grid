@@ -150,9 +150,9 @@ function showApp(appName) {
 }
 
 function showMain() {
-  AppUtils.show('main-view');
   const apps = document.querySelectorAll('.todo-app');
   apps.forEach(app => app.style.display = 'none');
+  AppUtils.show('main-view');
 }
 
 function showAlert(message) {
@@ -171,3 +171,15 @@ function showAlert(message) {
     setTimeout(() => document.body.removeChild(toast), 300);
   }, 3000);
 }
+document.addEventListener("DOMContentLoaded", function () {
+  const backButtons = document.querySelectorAll(".back-button");
+
+  backButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const notesApp = document.getElementById("notes-app");
+      if (notesApp) {
+        notesApp.style.display = "none"; // أخفي تطبيق الملاحظات
+      }
+    });
+  });
+});
