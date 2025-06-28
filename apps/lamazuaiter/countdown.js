@@ -1,5 +1,6 @@
-document.getElementById('calculate-btn').addEventListener('click', function () {
-  const dateInput = document.getElementById('datetime-picker').value;
+AppUtils.onClick('calculate-btn', function () 
+{
+  const dateInput = AppUtils.getValue('datetime-picker');
   const display = document.getElementById('countdown-display');
 
   if (!dateInput) {
@@ -36,6 +37,6 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const seconds = remainingAfterYears % 60;
 
 
-   display.textContent = `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining`;
+    display.textContent = `${years} years, ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds remaining`;
   }, 1000);
 });
