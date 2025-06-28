@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '4','5','6','*',
     '1','2','3','-',
     '0','.','=','+',
-    'C', 'Reset' // Added Reset button
+    'C', '⌫' // Replaced 'Reset' with '⌫'
   ];
 
   // Render calculator buttons
@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleInput(input) {
     if (input === 'C') {
       current = '';
-    } else if (input === 'Reset') {
-      current = '';
-      resultDisplayed = false;
+    } else if (input === '⌫') {
+      current = current.slice(0, -1); // Backspace functionality
     } else if (input === '=') {
       try {
         current = eval(current).toString();
@@ -53,9 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Support keyboard input
   document.addEventListener('keydown', (e) => {
     const key = e.key;
-    if ([...buttons, 'Enter', 'Escape'].includes(key)) {
+    if ([...buttons, 'Enter', 'Escape', 'Backspace'].includes(key)) {
       if (key === 'Enter') handleInput('=');
       else if (key === 'Escape') handleInput('C');
+      else if (key === 'Backspace') handleInput('⌫');
       else handleInput(key);
     }
   });
