@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
     <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+    <link rel="stylesheet" href="apps/Mohammad_Nazzal/jadara.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
 </head>
 
 <body>
@@ -57,12 +62,12 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Mohammad Nazzal</div>
-                    <div class="app-description">Mohammad's application is in development. Exciting features await!
-                    </div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                 <!-- Jadara Weather App Card -->
+                <div class="app-card implemented">
+                <div class="status-badge">LIVE</div>
+                <div class="app-name">Jadara Weather Status</div>
+                <div class="app-description">Jadara University Weather Status by Mohammad Nazzal.</div>
+                <button class="app-button" onclick="showApp('jadara')">Launch App</button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -239,6 +244,16 @@
             <p>Cycles completed: <span id="cycles">0</span></p>
         </div>
 
+        <!-- Jadara Weather App -->
+        <div id="jadara-app" class="todo-app jadara-app">
+        <button class="back-button" onclick="showMain()">&larr; Back to Hub</button>
+        <div class="todo-header">
+            <h2 style="color: rgb(216, 216, 216);">Jadara Weather Status</h2>
+        </div>
+        <div id="weather-updated" class="updated"></div>
+        <div id="weather-body"></div>
+        </div>
+
 
 
     </div>
@@ -248,6 +263,8 @@
     <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
     <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
     <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
+    <script src="apps/Mohammad_Nazzal/jadaraApp.js"></script>
+
 </body>
 
 </html>
