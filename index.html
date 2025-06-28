@@ -20,13 +20,14 @@
 
         <div id="main-view">
             <div class="apps-grid">
-                <!-- RAID - Card -->
-                <div class="app-card implemented">
-                    <div class="status-badge">LIVE</div>
-                    <div class="app-name">RAID</div>
-                    <div class="app-description">A simple and elegant todo list application to help you organize your
-                        tasks and boost productivity.</div>
-                    <button class="app-button" onclick="showApp('raid')">Launch App</button>
+<!-- Calculator App - by Aliya -->
+               <div class="app-card implemented">
+                <span class="live-badge">LIVE</span>
+                <h3>Calculator</h3>
+                <p>Simple calculator with basic arithmetic operations</p>
+                <button onclick="showApp('calculator')">Launch App</button>
+</div>
+
                 </div>
 
 
@@ -238,11 +239,48 @@
             </div>
             <p>Cycles completed: <span id="cycles">0</span></p>
         </div>
-
-
-
     </div>
 
+   <!-- Calculator App - by Aliya -->
+<div id="calculator-app" class="todo-app hidden">
+  <button onclick="showMain()">← Back</button>
+  <h2>Calculator</h2>
+
+  <div style="display: flex; justify-content: center; align-items: flex-start; gap: 1rem; max-width: 600px; margin: auto; background: #f9fafb; padding: 1rem; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+      <button class="btn" data-value="/" style="padding:1rem;font-size:1.2rem;background:#facc15;border:none;border-radius:6px;cursor:pointer;">÷</button>
+      <button class="btn" data-value="*" style="padding:1rem;font-size:1.2rem;background:#facc15;border:none;border-radius:6px;cursor:pointer;">×</button>
+      <button class="btn" data-value="-" style="padding:1rem;font-size:1.2rem;background:#facc15;border:none;border-radius:6px;cursor:pointer;">−</button>
+      <button class="btn" data-value="+" style="padding:1rem;font-size:1.2rem;background:#facc15;border:none;border-radius:6px;cursor:pointer;">+</button>
+      <button id="equals" style="padding:1rem;font-size:1.2rem;background:#34d399;color:white;border:none;border-radius:6px;cursor:pointer;">=</button>
+    </div>
+
+    <div style="flex-grow: 1;">
+      <input id="calc-display" type="text" readonly style="width:100%;height:50px;font-size:1.5rem;text-align:right;padding:0.5rem;margin-bottom:1rem;border:2px solid #ccc;border-radius:8px;background:#fff;" />
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+        <button class="btn" data-value="7" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">7</button>
+        <button class="btn" data-value="8" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">8</button>
+        <button class="btn" data-value="9" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">9</button>
+        <button class="btn" data-value="4" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">4</button>
+        <button class="btn" data-value="5" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">5</button>
+        <button class="btn" data-value="6" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">6</button>
+        <button class="btn" data-value="1" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">1</button>
+        <button class="btn" data-value="2" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">2</button>
+        <button class="btn" data-value="3" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">3</button>
+        <button class="btn" data-value="." style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">.</button>
+        <button class="btn" data-value="0" style="padding:1rem;font-size:1.2rem;background:#e5e7eb;border:none;border-radius:6px;cursor:pointer;">0</button>
+        <button id="clear" style="padding:1rem;font-size:1.2rem;background:#f87171;color:white;border:none;border-radius:6px;cursor:pointer;">C</button> 
+    </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <script src="apps/aliaa/calculator.js"></script>
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
     <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
