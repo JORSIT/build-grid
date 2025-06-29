@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 02 – Color Palette Picker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <script src="apps/palette.js" defer></script>
+</head>
+<body>
+
+  <h1>My App Grid</h1>
+
+  <div class="apps-grid">
+    <div class="app-card implemented">
+      <span class="live-badge">LIVE</span>
+      <h3>Color Palette Picker</h3>
+      <p>Generate random color palettes and preview swatches.</p>
+      <button onclick="showApp('palette')">Launch App</button>
+    </div>
+  </div>
+
+  <div id="palette-app" class="todo-app" style="display: none;">
+    <button onclick="showMain()">← Back</button>
+    <h2>Color Palette Picker</h2>
+    <div id="palette-container" class="palette-grid"></div>
+    <button id="generate-palette">Generate Palette</button>
+  </div>
+
+</body>
+</html>
