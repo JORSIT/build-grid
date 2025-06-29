@@ -1,21 +1,27 @@
-
+/* Hide the Tip Splitter app on initial page load */
 #tip-app {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 10px;
   max-width: 400px;
   margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
+/* Style for input fields inside the app */
 #tip-app input {
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 6px;
   font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-
+/* Style for all buttons except the back button */
 #tip-app button:not(.back-button) {
   padding: 10px;
   font-weight: bold;
@@ -24,8 +30,18 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* Hover effect for buttons */
 #tip-app button:not(.back-button):hover {
-  background-color: #213ca9;
+  background-color: #005f99;
+}
+
+/* Style for the result display text */
+#result {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
 }
