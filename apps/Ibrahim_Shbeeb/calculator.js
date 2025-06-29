@@ -32,7 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
       current = current.slice(0, -1); // Backspace functionality
     } else if (input === '=') {
       try {
-        current = eval(current).toString();
+        const evalResult = eval(current);
+        if (evalResult === Infinity || evalResult === -Infinity) {
+          current = 'Cannot divide by zero';
+        } else {
+          current = evalResult.toString();
+        }
         resultDisplayed = true;
       } catch (e) {
         current = 'Error';
