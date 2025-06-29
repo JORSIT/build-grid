@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       resultDisplayed = false;
     }
-    display.innerText = current || '0';
+    display.innerText = typeof current === 'string' ? current : 'Error';
   }
 
   // Support keyboard input
