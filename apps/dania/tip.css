@@ -32,6 +32,9 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+ #tip-app .back-button {
+  align-self: flex-start;
+}
 
 /* Hover effect for buttons */
 #tip-app button:not(.back-button):hover {
