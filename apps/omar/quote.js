@@ -14,6 +14,7 @@ const quotes = [
 let favoriteQuotes = [];
 let lastDisplayedQuote = "";
 
+
 function showNotification(message, type = "success", duration = 3000) {
   const existing = document.querySelector(".custom-notification");
   if (existing) existing.remove();
@@ -28,7 +29,8 @@ function showNotification(message, type = "success", duration = 3000) {
   closeBtn.onclick = () => notif.remove();
 
   notif.appendChild(closeBtn);
-  document.body.appendChild(notif);
+  
+  document.body.insertBefore(notif, document.body.firstChild);
 
   setTimeout(() => {
     notif.remove();
@@ -49,9 +51,7 @@ function showRandomQuote() {
 function copyQuoteToClipboard() {
   const quoteText = document.getElementById('quote-omar-text').innerText;
   navigator.clipboard.writeText(quoteText)
-    .then(() => {
-      showNotification("✅ Quote copied to clipboard!", "success");
-    })
+    .then(() => showNotification("✅ Quote copied to clipboard!", "success"))
     .catch(err => {
       showNotification("❌ Failed to copy quote.", "error");
       console.error(err);
@@ -64,6 +64,7 @@ function saveCurrentQuote() {
   if (!favoriteQuotes.includes(currentQuote)) {
     favoriteQuotes.push(currentQuote);
     renderFavorites();
+    showNotification("✅ Quote saved!", "success");
   } else {
     showNotification("⚠️ This quote is already saved.", "warning");
   }
@@ -72,6 +73,7 @@ function saveCurrentQuote() {
 function deleteFavorite(index) {
   favoriteQuotes.splice(index, 1);
   renderFavorites();
+  showNotification("🗑️ Quote removed.", "success");
 }
 
 function renderFavorites() {
