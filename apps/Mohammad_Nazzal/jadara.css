@@ -1,0 +1,100 @@
+.weather-app {
+  max-width: 22rem;
+  margin: 2rem auto;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #616161;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.weather-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  color: #e6e6e6;
+  border-bottom: 1px solid #2980b9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.weather-bar .title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+
+.updated {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin: 0.75rem 0;
+  font-style: italic;
+}
+
+.weather-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  padding: 3.5rem;
+  background-color: #f8f9fb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e6e6e6;
+  margin: 1rem;
+  transition: transform 0.3s ease;
+
+}
+
+.weather-card:hover {
+  transform: scale(1.02);
+}
+
+.weather-icon i {
+  font-size: 4.2rem;
+  color: #f39c12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.temp {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #e6e6e6;
+  margin-bottom: 0.3rem;
+}
+
+.desc {
+  text-transform: capitalize;
+  font-size: 1.05rem;
+  color: #e6e6e6;
+  margin-bottom: 0.3rem;
+}
+
+.wind {
+  font-size: 0.9rem;
+  color: #e6e6e6;
+}
+
+/* ========= CONDITIONAL DISPLAY ========= */
+.jadara-app {
+  display: none;
+}
+
+.jadara-app.active {
+  display: block;
+}
+.weather-card {
+    background-color: #58585840;
+}
