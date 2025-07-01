@@ -31,19 +31,32 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (input === '⌫') {
       current = current.slice(0, -1); // Backspace functionality
     } else if (input === '=') {
-      try {
-        const evalResult = eval(current);
-        if (evalResult === Infinity || evalResult === -Infinity) {
-          current = 'Cannot divide by zero';
-        } else {
-          current = evalResult.toString();
-        }
-        resultDisplayed = true;
-      } catch (e) {
-        current = 'Error';
-        resultDisplayed = true;
+      // Prevent evaluating invalid expressions
+      if (current === 'Error' || current === 'Cannot divide by zero') {
+        return; // Do nothing
       }
+
+      if (current.trim() === '') {
+        current = '0';
+      } else {
+        try {
+          const evalResult = eval(current);
+          if (evalResult === Infinity || evalResult === -Infinity) {
+            current = 'Cannot divide by zero';
+          } else {
+            current = evalResult.toString();
+          }
+        } catch (e) {
+          current = 'Error';
+        }
+      }
+      resultDisplayed = true;
     } else {
+      // Clear error messages before continuing
+      if (current === 'Error' || current === 'Cannot divide by zero') {
+        current = '';
+      }
+
       if (resultDisplayed && /[0-9]/.test(input)) {
         current = input;
       } else {
