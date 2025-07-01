@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="apps/dania/tip.css" />
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
-    <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+        <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+
 </head>
 
 <body>
@@ -113,13 +116,12 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Dania Jarbou</div>
-                    <div class="app-description">Dania is cooking up something special. Get ready for an amazing
-                        experience!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
-                </div>
+                         <div class="app-card implemented">
+                   <div class="status-badge">LIVE</div>
+                 <div class="app-name">Tip Splitter</div>
+                  <div class="app-description">Split your bill with tip among friends.</div>
+                 <button class="app-button" onclick="showApp('tip')">Launch App</button>
+                 </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -157,42 +159,48 @@
             </div>
         </div>
 
-        <!-- RAID Todo App -->
-        <div id="raid-app" class="todo-app">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
 
-            <div class="todo-header">
-                <h2>RAID Todo List</h2>
-                <p>Stay organized and productive!</p>
-            </div>
+     <!-- RAID Todo App -->
+<div id="raid-app" class="todo-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <div class="todo-header">
+    <h2>RAID Todo List</h2>
+    <p>Stay organized and productive!</p>
+  </div>
+  <div class="todo-input-container">
+    <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..." onkeypress="handleKeyPress(event)">
+    <button class="add-button" onclick="addTodo()">Add Task</button>
+  </div>
+  <ul id="todo-list" class="todo-list"></ul>
+</div>
 
-            <div class="todo-input-container">
-                <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..."
-                    onkeypress="handleKeyPress(event)">
-                <button class="add-button" onclick="addTodo()">Add Task</button>
-            </div>
+<!-- Dania's Tip Splitter -->
+<div id="tip-app" class="todo-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <h2>Tip Splitter</h2>
+  <input id="bill-input" type="number" placeholder="Total Bill" />
+  <input id="tip-input" type="number" placeholder="Tip %" />
+  <input id="people-input" type="number" placeholder="Number of People" />
+  <button id="calculate-btn">Calculate</button>
+  <button id="reset-btn">Reset</button>
+  <div id="result" style="font-size: 1.5rem; font-weight: bold;"></div>
+</div>
 
-            <ul id="todo-list" class="todo-list"></ul>
-        </div>
-
-        <!-- Yazan's Markdown App -->
-        <div id="markdown-app" class="markdown-app">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
-
-            <div class="md-header">
-                <h2>Markdown Previewer</h2>
-                <p>Live-render GitHub-flavored Markdown as you type.</p>
-            </div>
-
-            <div class="md-input-section">
-                <textarea id="markdown-input" class="md-editor" rows="8" placeholder="Enter Markdown here…"></textarea>
-            </div>
-
-            <div class="md-preview-section">
-                <label for="markdown-output" class="md-label">Preview:</label>
-                <div id="markdown-output" class="md-preview markdown-body"></div>
-            </div>
-        </div>
+<!-- Markdown Previewer -->
+<div id="markdown-app" class="markdown-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <div class="md-header">
+    <h2>Markdown Previewer</h2>
+    <p>Live-render GitHub-flavored Markdown as you type.</p>
+  </div>
+  <div class="md-input-section">
+    <textarea id="markdown-input" class="md-editor" rows="8" placeholder="Enter Markdown here…"></textarea>
+  </div>
+  <div class="md-preview-section">
+    <label for="markdown-output" class="md-label">Preview:</label>
+    <div id="markdown-output" class="md-preview markdown-body"></div>
+  </div>
+</div>
 
         <!-- Yamen Tahseen's Quote App -->
         <div id="quote-app" class="todo-app">
@@ -207,8 +215,8 @@
                 </div>
             </div>
             <div class="todo-header">
-                <h2 id="quote-heading">Random Quote Generator</h2>
-                <p id="quote-subheading">Get inspired with uplifting quotes in English and Arabic.</p>
+                 <h2 id="quote-heading">Random Quote Generator</h2>
+                 <p id="quote-subheading">Get inspired with uplifting quotes in English and Arabic.</p>
             </div>
             <div class="quote-container">
                 <div class="lang-indicator" id="type-indicator">English</div>
@@ -225,7 +233,7 @@
                 </div>
             </div>
         </div>
-
+        
         <!--Mariam Pomodoros-->
         <div id="pomodoro-app" class="todo-app">
             <button onclick="showMain()" class="back-button">← Back</button>
@@ -240,14 +248,15 @@
         </div>
 
 
-
     </div>
 
-    <script src="script.js"></script>
-    <script src="apps/raidApp.js"></script>
-    <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
-    <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
-    <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
+  <!-- Scripts -->
+<script src="script.js"></script>
+<script src="apps/raidApp.js"></script>
+<script src="apps/dania/tip.js"></script>
+<script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
+<script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+<script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
 </body>
 
 </html>
