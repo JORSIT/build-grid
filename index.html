@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="apps/notes/notes.css">
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
+    <link rel="stylesheet" href="apps/omar/quote.css">
+    <link rel="stylesheet" href="apps/dania/tip.css" />
+    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
+    <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
+        <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+
 </head>
 
 <body>
@@ -119,20 +125,21 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Dania Jarbou</div>
-                    <div class="app-description">Dania is cooking up something special. Get ready for an amazing
-                        experience!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
-                </div>
+                         <div class="app-card implemented">
+                   <div class="status-badge">LIVE</div>
+                 <div class="app-name">Tip Splitter</div>
+                  <div class="app-description">Split your bill with tip among friends.</div>
+                 <button class="app-button" onclick="showApp('tip')">Launch App</button>
+                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Omar Marashdeh</div>
-                    <div class="app-description">Omar's innovative project is coming together. Stay tuned for the big
-                        reveal!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+
+                <div class="app-card implemented">
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Quote Generator</div>
+                    <div class="app-description">A simple app that shows random motivational quotes.</div>
+                    <button class="app-button" onclick="showApp('quote-omar')">
+                        Launch App
+                    </button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -163,27 +170,45 @@
             </div>
         </div>
 
-        <!-- RAID Todo App -->
-        <div id="raid-app" class="todo-app">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
 
-            <div class="todo-header">
-                <h2>RAID Todo List</h2>
-                <p>Stay organized and productive!</p>
-            </div>
+     <!-- RAID Todo App -->
+<div id="raid-app" class="todo-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <div class="todo-header">
+    <h2>RAID Todo List</h2>
+    <p>Stay organized and productive!</p>
+  </div>
+  <div class="todo-input-container">
+    <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..." onkeypress="handleKeyPress(event)">
+    <button class="add-button" onclick="addTodo()">Add Task</button>
+  </div>
+  <ul id="todo-list" class="todo-list"></ul>
+</div>
 
-            <div class="todo-input-container">
-                <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..."
-                    onkeypress="handleKeyPress(event)">
-                <button class="add-button" onclick="addTodo()">Add Task</button>
-            </div>
-
-            <ul id="todo-list" class="todo-list"></ul>
+        <!--  Random Quote Generator App -->
+        <div id="quote-omar-app" class="todo-app">
+        <button class="quote-back-button" onclick="showMain()">⬅️ Back to hup</button>
+        <div class="todo-omar-header">
+            <h2>🧠 Random Quote Generator</h2>
+        </div>
+        <div id="quote-omar-text">
+            Click the button for a quote!
+        </div>
+        <div class="quote-omar-container">
+            <button id="new-quote-omar-btn" class="quote-omar-btn">🔁 New Quote</button>
+            <button id="copy-quote-omar-btn" class="quote-omar-btn">📋 Copy Quote</button>
+            <button id="save-quote-omar-btn" class="quote-omar-btn">⭐️ Save Quote</button>
+        </div>
+        <div id="favorites-omar-container">
+            <h3>⭐️ Saved Quotes</h3>
+            <ul id="favorites-omar-list"></ul>
+        </div>
         </div>
         <!-- Abdullah AbuSoboh's Notes App -->
         <div id="notes-app" class="todo-app" style="display: none">
             <button class="back-button" onclick="showMain()">← Back</button>
             <h2>Notes App</h2>
+
 
             <textarea id="note-input" placeholder="Write a note..." rows="3"></textarea>
             <button id="add-note">Add Note</button>
@@ -205,20 +230,33 @@
         <div id="markdown-app" class="todo-app">
             <button class="back-button" onclick="showMain()">← Back to Hub</button>
 
-            <div class="md-header">
-                <h2>Markdown Previewer</h2>
-                <p>Live-render GitHub-flavored Markdown as you type.</p>
-            </div>
+<!-- Dania's Tip Splitter -->
+<div id="tip-app" class="todo-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <h2>Tip Splitter</h2>
+  <input id="bill-input" type="number" placeholder="Total Bill" />
+  <input id="tip-input" type="number" placeholder="Tip %" />
+  <input id="people-input" type="number" placeholder="Number of People" />
+  <button id="calculate-btn">Calculate</button>
+  <button id="reset-btn">Reset</button>
+  <div id="result" style="font-size: 1.5rem; font-weight: bold;"></div>
+</div>
 
-            <div class="md-input-section">
-                <textarea id="markdown-input" class="md-editor" rows="8" placeholder="Enter Markdown here…"></textarea>
-            </div>
-
-            <div class="md-preview-section">
-                <label for="markdown-output" class="md-label">Preview:</label>
-                <div id="markdown-output" class="md-preview markdown-body"></div>
-            </div>
-        </div>
+<!-- Markdown Previewer -->
+<div id="markdown-app" class="markdown-app">
+  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <div class="md-header">
+    <h2>Markdown Previewer</h2>
+    <p>Live-render GitHub-flavored Markdown as you type.</p>
+  </div>
+  <div class="md-input-section">
+    <textarea id="markdown-input" class="md-editor" rows="8" placeholder="Enter Markdown here…"></textarea>
+  </div>
+  <div class="md-preview-section">
+    <label for="markdown-output" class="md-label">Preview:</label>
+    <div id="markdown-output" class="md-preview markdown-body"></div>
+  </div>
+</div>
 
         <!-- Yamen Tahseen's Quote App -->
         <div id="quote-app" class="todo-app">
@@ -233,8 +271,8 @@
                 </div>
             </div>
             <div class="todo-header">
-                <h2 id="quote-heading">Random Quote Generator</h2>
-                <p id="quote-subheading">Get inspired with uplifting quotes in English and Arabic.</p>
+                 <h2 id="quote-heading">Random Quote Generator</h2>
+                 <p id="quote-subheading">Get inspired with uplifting quotes in English and Arabic.</p>
             </div>
             <div class="quote-container">
                 <div class="lang-indicator" id="type-indicator">English</div>
@@ -251,6 +289,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     </div>
@@ -260,6 +299,32 @@
     <script src="apps/raidApp.js"></script>
     <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
     <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+        
+        <!--Mariam Pomodoros-->
+        <div id="pomodoro-app" class="todo-app">
+            <button onclick="showMain()" class="back-button">← Back</button>
+            <h2>Pomodoro Timer</h2>
+            <div id="timer">25:00</div>
+            <div class="controls">
+                <button id="start">Start</button>
+                <button id="pause">Pause</button>
+                <button id="reset">Reset</button>
+            </div>
+            <p>Cycles completed: <span id="cycles">0</span></p>
+        </div>
+
+
+    </div>
+
+  <!-- Scripts -->
+<script src="script.js"></script>
+<script src="apps/raidApp.js"></script>
+<script src="apps/omar/quote.js"></script>
+<script src="apps/dania/tip.js"></script>
+<script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
+<script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+<script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
+
 </body>
 
 </html>
