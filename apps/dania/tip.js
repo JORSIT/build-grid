@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     tipPercent = parseFloat(tipInput.value) || 0;
     numberOfPeople = parseInt(peopleInput.value) || 1;
 
+    // ✅ Check for negative values
+    if (totalBill < 0 || tipPercent < 0 || numberOfPeople <= 0) {
+      resultDiv.textContent = "Please enter only positive values.";
+      return;
+    }
+
     renderTipSplitter();
   });
 
