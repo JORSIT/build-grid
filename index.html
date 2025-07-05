@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="apps/dania/tip.css" />
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
-        <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+    <link rel="stylesheet" href="apps/Ibrahim_Shbeeb/style.css">
+    <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
     <link rel="stylesheet" href="apps/lamazuaiter/countdown.css">
 </head>
 
@@ -108,12 +109,11 @@
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Ibrahim Shbaib</div>
-                    <div class="app-description">Ibrahim's creative application is in the works. Exciting times ahead!
-                    </div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                    <div class="status-badge">Live</div>
+                    <div class="app-name">Calculator</div>
+                    <div class="app-description">A simple calculator with keyboard support.</div>
+                    <button class="app-button" onclick="showApp('calculator')">Launch App</button>
                 </div>
 
                          <div class="app-card implemented">
@@ -267,7 +267,15 @@
                 </div>
             </div>
         </div>
+
+          <!--Ibrahim Shbeeb's Calculator App-->
+        <div id="calculator-app" class="todo-app">
+        <button class="back-button" onclick="showMain()">← Back</button>
+        <div id="calc-display" class="calc-display">0</div>
+        <div id="calc-buttons" class="calc-buttons"></div>
+        </div>
         
+
         <!--Mariam Pomodoros-->
         <div id="pomodoro-app" class="todo-app">
             <button onclick="showMain()" class="back-button">← Back</button>
@@ -284,6 +292,8 @@
 
     </div>
 
+
+
   <!-- Scripts -->
 <script src="script.js"></script>
 <script src="apps/raidApp.js"></script>
@@ -292,7 +302,9 @@
 <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
 <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
 <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
+<script src="apps/Ibrahim_Shbeeb/calculator.js"></script>
 <script src="apps/lamazuaiter/countdown.js"></script>
+
 </body>
 
 </html>
