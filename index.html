@@ -24,13 +24,11 @@
         <div id="main-view">
             <div class="apps-grid">
                 <!-- RAID - Card -->
-                <div class="app-card implemented">
-                    <div class="status-badge">LIVE</div>
-                    <div class="app-name">RAID</div>
-                    <div class="app-description">A simple and elegant todo list application to help you organize your
-                        tasks and boost productivity.</div>
-                    <button class="app-button" onclick="showApp('raid')">Launch App</button>
-                </div>
+                <span class="live-badge">LIVE</span>
+                <h3>Random Quote Generator</h3>
+                <p>Load uplifting quotes from a static list on each click.</p>
+                <button onclick="showApp('randomquote')">Launch App</button>
+             </div>
 
 
                 <!-- Interns Cards -->
@@ -192,6 +190,14 @@
         <div id="favorites-omar-container">
             <h3>⭐️ Saved Quotes</h3>
             <ul id="favorites-omar-list"></ul>
+        </div>
+        <div id="randomquote-app" class="todo-app" style="display:none;">
+            <button onclick="showMain()">← Back</button>
+            <h2>Random Quote Generator</h2>
+            <div id="quote-container" class="quote-box">
+            <p id="quote-text">Click the button to get inspired!</p>
+            </div>
+            <button id="get-quote-btn">Get Quote</button>
         </div>
         </div>
 
