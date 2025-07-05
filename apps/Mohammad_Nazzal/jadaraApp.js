@@ -68,7 +68,7 @@ function renderWeather() {
   const hour = new Date(weather.time).getHours();
   const backgroundImage = (hour >= 18 || hour < 6)
     ? "url('../build-grid/apps/Mohammad_Nazzal/images/JadaraNight.png')"
-    : "url('../build-grid/apps/Mohammad_Nazzal/images/JadaraMorning.png')";
+    : "url('../build-grid/apps/Mohammad_Nazzal/images/JadaraMorning.jpg')";
 
   const appContainer = document.querySelector('.jadara-app');
   if (appContainer) {
