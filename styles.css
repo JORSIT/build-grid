@@ -317,3 +317,28 @@ body {
         padding: 20px;
     }
 }
+/* تنسيق تطبيق الاقتباسات */
+.todo-app {
+  max-width: 400px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.quote-box {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  font-style: italic;
+  font-size: 1.2em;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 1em;
+}
