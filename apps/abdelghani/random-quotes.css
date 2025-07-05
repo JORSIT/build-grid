@@ -1,0 +1,19 @@
+#randomQuotes-app {
+  display: none;
+}
+
+#randomQuotes-app.active {
+  display: block;
+}
+
+.quote-box {
+  min-height: 100px;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.quote-center {
+  text-align: center;
+}
