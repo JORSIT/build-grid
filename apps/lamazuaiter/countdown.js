@@ -1,4 +1,4 @@
-AppUtils.onClick('calculate-btn', function () 
+AppUtils.onClick('calculateBtn', function () 
 {
   const dateInput = AppUtils.getValue('datetime-picker');
   const display = document.getElementById('countdown-display');

@@ -24,7 +24,7 @@
 }
 
 /* Calculate Button */
-#calculate-btn {
+#calculateBtn {
   padding: 12px 20px;
   background: linear-gradient(135deg, #1d0f5a, #3f3373);
   color: white;
@@ -36,7 +36,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-#calculate-btn:hover {
+#calculateBtn:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 20px rgba(63, 51, 115, 0.3);
 }
