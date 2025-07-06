@@ -32,7 +32,7 @@
                     <button class="app-button" onclick="showApp('raid')">Launch App</button>
                 </div>
 
-
+                
                 <!-- Interns Cards -->
                 <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
@@ -132,13 +132,13 @@
                     </button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Qais Mehdawei</div>
-                    <div class="app-description">Qais is developing something extraordinary. The anticipation is
-                        building!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
+                <div class="app-card implemented">
+                    <div class="status-badge">LIVE</div>
+                    <div class="app-name">Qais Quote App</div>
+                    <div class="app-description">Shows random motivational quotes with copy/save options.</div>
+                    <button class="app-button" onclick="showApp('qais-quote')">Launch App</button>
                 </div>
+
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -275,6 +275,19 @@
             </div>
             <p>Cycles completed: <span id="cycles">0</span></p>
         </div>
+         <div id="qais-quote-app" class="todo-app">
+            <button class="back-button" onclick="showMain()">← Back to Hub</button>
+            <h2>Qais Quote Generator</h2>
+            <p>Click below to get inspired:</p>
+            <div id="qais-quote-text" style="margin: 1rem; font-weight: bold;"></div>
+            <button id="qais-new-quote-btn">🔁 New Quote</button>
+            <button id="qais-copy-quote-btn">📋 Copy Quote</button>
+            <button id="qais-save-quote-btn">⭐️ Save Quote</button>
+            <div id="qais-saved-quotes">
+              <h3>⭐ Saved Quotes</h3>
+              <ul id="qais-favorites-list"></ul>
+             </div>
+        </div>
 
 
     </div>
@@ -290,6 +303,7 @@
 <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
 <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
 <script src="apps/Ibrahim_Shbeeb/calculator.js"></script>
+<script src="apps/qais/quote.js"></script>
 
 
 </body>
