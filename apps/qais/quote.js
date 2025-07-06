@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Copied to clipboard!");
     });
 
+    
     saveBtn.addEventListener("click", () => {
         const li = document.createElement("li");
         li.textContent = quoteText.textContent;
