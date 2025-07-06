@@ -114,6 +114,13 @@
                     <div class="app-description">A simple calculator with keyboard support.</div>
                     <button class="app-button" onclick="showApp('calculator')">Launch App</button>
                 </div>
+                <!-- App Card -->
+                <div class="app-card implemented">
+                <div class="live-badge">LIVE</div>
+                <h3>Calculator</h3>
+                <p>Perform basic + − × ÷ operations with keyboard support.</p>
+                <button onclick="showApp('calculator')">Launch App</button>
+                </div>
 
                          <div class="app-card implemented">
                    <div class="status-badge">LIVE</div>
@@ -181,6 +188,7 @@
         <div class="todo-omar-header">
             <h2>🧠 Random Quote Generator</h2>
         </div>
+<<<<<<< HEAD
         <div id="quote-omar-text">
             Click the button for a quote!
         </div>
@@ -291,6 +299,54 @@
 <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
 <script src="apps/Ibrahim_Shbeeb/calculator.js"></script>
 
+=======
+        <!-- App Container -->
+        <div id="calculator-app" class="todo-app" style="display: none;">
+        <button onclick="showMain()">← Back</button>
+        <h2>Calculator</h2>
+        <div class="calc-display" id="calc-display">0</div>
+        <div class="calc-buttons" id="calc-buttons"></div>
+        </div>
+
+        <!-- Calculator App -->
+        <div id="calculator-app" class="todo-app" style="display: none;">
+            <button onclick="showMain()">← Back</button>
+            <input id="calculator-display" readonly value="0" />
+            <div class="calculator-buttons">
+              <div>
+                <button class="calculator-digit" data-digit="7">7</button>
+                <button class="calculator-digit" data-digit="8">8</button>
+                <button class="calculator-digit" data-digit="9">9</button>
+                <button class="calculator-operator" data-op="/">÷</button>
+              </div>
+              <div>
+                <button class="calculator-digit" data-digit="4">4</button>
+                <button class="calculator-digit" data-digit="5">5</button>
+                <button class="calculator-digit" data-digit="6">6</button>
+                <button class="calculator-operator" data-op="*">×</button>
+              </div>
+              <div>
+                <button class="calculator-digit" data-digit="1">1</button>
+                <button class="calculator-digit" data-digit="2">2</button>
+                <button class="calculator-digit" data-digit="3">3</button>
+                <button class="calculator-operator" data-op="-">−</button>
+              </div>
+              <div>
+                <button id="calculator-clear">C</button>
+                <button class="calculator-digit" data-digit="0">0</button>
+                <button id="calculator-equals">=</button>
+                <button class="calculator-operator" data-op="+">+</button>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script src="apps/raidApp.js"></script>
+    <script src="apps/sam.js"></script>
+    <script src="apps/calculator.js"></script>
+>>>>>>> 2c3530dbe81333f696599fd2d81f74a3302aaf80
 
 </body>
 
