@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const display = document.getElementById('calc-display');
+  const display = document.getElementById('aliya-calc-display');
   let currentInput = '';
 
   document.getElementById('equals').addEventListener('click', () => {
