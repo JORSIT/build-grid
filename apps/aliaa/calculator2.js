@@ -1,25 +1,26 @@
 document.querySelectorAll("#calculator-aliya-app .btn").forEach(button => {
   button.addEventListener("click", () => {
     const value = button.getAttribute("data-value");
-    const display = document.getElementById("aliya-calc-display");
-    display.value += value;
+    const displayId = "aliya-calc-display";
+    const current = AppUtils.getValue(displayId);
+    AppUtils.setValue(displayId, current + value);
   });
 });
 
-document.getElementById("clear").addEventListener("click", () => {
-  document.getElementById("aliya-calc-display").value = "";
+AppUtils.onClick("clear", () => {
+  AppUtils.setValue("aliya-calc-display", "");
 });
 
-document.getElementById("equals").addEventListener("click", () => {
-  const display = document.getElementById("aliya-calc-display");
+AppUtils.onClick("equals", () => {
+  const expression = AppUtils.getValue("aliya-calc-display");
   try {
-    const result = eval(display.value);
+    const result = Function('"use strict"; return (' + expression + ')')();
     if (result === Infinity || result === -Infinity) {
-      display.value = "Cannot divide by zero";
+      AppUtils.setValue("aliya-calc-display", "Cannot divide by zero");
     } else {
-      display.value = result;
+      AppUtils.setValue("aliya-calc-display", result);
     }
   } catch (e) {
-    display.value = "Error";
+    AppUtils.setValue("aliya-calc-display", "Error");
   }
 });
