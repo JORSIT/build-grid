@@ -58,7 +58,7 @@ function addNote() {
     notes.push({ id: noteNextId++, text: input });
     AppUtils.setValue('note-input', '');
     renderNotes();
-    showAlert('Note added!');
+    showNotesAlert('Note added!');
   }
 }
 
@@ -80,7 +80,7 @@ function deleteNote(id) {
   confirmButton.onclick = () => {
     notes = notes.filter(note => note.id !== id);
     renderNotes();
-    showAlert('Note deleted!');
+    showNotesAlert('Note deleted!');
     document.body.removeChild(confirmPopup);
   };
 
@@ -115,7 +115,7 @@ function saveEdit(id) {
     const note = notes.find(n => n.id === id);
     note.text = newText;
     renderNotes();
-    showAlert('Note saved!');
+    showNotesAlert('Note saved!');
   }
 }
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function showApp(appName) {
+function showNotesApp(appName) {
   AppUtils.hide('main-view');
   const apps = document.querySelectorAll('.todo-app');
   apps.forEach(app => app.style.display = 'none');
@@ -149,13 +149,13 @@ function showApp(appName) {
   }
 }
 
-function showMain() {
+function showMainFromNotes() {
   const apps = document.querySelectorAll('.todo-app');
   apps.forEach(app => app.style.display = 'none');
   AppUtils.show('main-view');
 }
 
-function showAlert(message) {
+function showNotesAlert(message) {
   const toast = document.createElement('div');
   toast.className = 'toast';
   toast.textContent = message;

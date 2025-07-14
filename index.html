@@ -36,7 +36,7 @@
                     <div class="app-name">RAID</div>
                     <div class="app-description">A simple and elegant todo list application to help you organize your
                         tasks and boost productivity.</div>
-                    <button class="app-button" onclick="showApp('raid')">Launch App</button>
+                    <button class="app-button" onclick="showNotesApp('raid')">Launch App</button>
                 </div>
 
 
@@ -47,7 +47,7 @@
                     <div class="app-description">
                         Live-render GitHub-flavored Markdown as you type.
                     </div>
-                    <button class="app-button" onclick="showApp('markdown')">
+                    <button class="app-button" onclick="showNotesApp('markdown')">
                         Launch App
                     </button>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">Random Quote Generator</div>
                     <div class="app-description">Get inspired with uplifting quotes in English and Arabic.</div>
-                    <button class="app-button" onclick="showApp('quote')">Launch App</button>
+                    <button class="app-button" onclick="showNotesApp('quote')">Launch App</button>
                 </div>
 
                 <div class="app-card not-implemented">
@@ -86,7 +86,7 @@
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">Notes App</div>
                     <div class="app-description">Jot down and delete quick notes.</div>
-                    <button class="app-button" onclick="showApp('notes')">
+                    <button class="app-button" onclick="showNotesApp('notes')">
                         Launch App
                     </button>
 
@@ -120,14 +120,14 @@
                     <div class="status-badge">Live</div>
                     <div class="app-name">Calculator</div>
                     <div class="app-description">A simple calculator with keyboard support.</div>
-                    <button class="app-button" onclick="showApp('calculator')">Launch App</button>
+                    <button class="app-button" onclick="showNotesApp('calculator')">Launch App</button>
                 </div>
 
                          <div class="app-card implemented">
                    <div class="status-badge">LIVE</div>
                  <div class="app-name">Tip Splitter</div>
                   <div class="app-description">Split your bill with tip among friends.</div>
-                 <button class="app-button" onclick="showApp('tip')">Launch App</button>
+                 <button class="app-button" onclick="showNotesApp('tip')">Launch App</button>
                  </div>
 
 
@@ -135,7 +135,7 @@
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">Quote Generator</div>
                     <div class="app-description">A simple app that shows random motivational quotes.</div>
-                    <button class="app-button" onclick="showApp('quote-omar')">
+                    <button class="app-button" onclick="showNotesApp('quote-omar')">
                         Launch App
                     </button>
                 </div>
@@ -171,7 +171,7 @@
 
      <!-- RAID Todo App -->
 <div id="raid-app" class="todo-app">
-  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <button class="back-button" onclick="showMainFromNotes()">← Back to Hub</button>
   <div class="todo-header">
     <h2>RAID Todo List</h2>
     <p>Stay organized and productive!</p>
@@ -185,7 +185,7 @@
 
         <!--  Random Quote Generator App -->
         <div id="quote-omar-app" class="todo-app">
-        <button class="quote-back-button" onclick="showMain()">⬅️ Back to hup</button>
+        <button class="quote-back-button" onclick="showMainFromNotes()">⬅️ Back to hup</button>
         <div class="todo-omar-header">
             <h2>🧠 Random Quote Generator</h2>
         </div>
@@ -204,7 +204,7 @@
         </div>
         <!-- Abdullah AbuSoboh's Notes App -->
         <div id="notes-app" class="todo-app" style="display: none">
-            <button class="back-button" onclick="showMain()">← Back</button>
+            <button class="back-button" onclick="showMainFromNotes()">← Back</button>
             <h2>Notes App</h2>
 
 
@@ -226,11 +226,11 @@
         </div>
         <!-- Yazan's Markdown App -->
         <div id="markdown-app" class="todo-app">
-            <button class="back-button" onclick="showMain()">← Back to Hub</button>
+            <button class="back-button" onclick="showMainFromNotes()">← Back to Hub</button>
 
 <!-- Dania's Tip Splitter -->
 <div id="tip-app" class="todo-app">
-  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <button class="back-button" onclick="showMainFromNotes()">← Back to Hub</button>
   <h2>Tip Splitter</h2>
   <input id="bill-input" type="number" placeholder="Total Bill" />
   <input id="tip-input" type="number" placeholder="Tip %" />
@@ -242,7 +242,7 @@
 
 <!-- Markdown Previewer -->
 <div id="markdown-app" class="markdown-app">
-  <button class="back-button" onclick="showMain()">← Back to Hub</button>
+  <button class="back-button" onclick="showMainFromNotes()">← Back to Hub</button>
   <div class="md-header">
     <h2>Markdown Previewer</h2>
     <p>Live-render GitHub-flavored Markdown as you type.</p>
@@ -259,7 +259,7 @@
         <!-- Yamen Tahseen's Quote App -->
         <div id="quote-app" class="todo-app">
             <div class="toggles">
-                <button class="back-button" onclick="showMain()">← Back to Hub</button>
+                <button class="back-button" onclick="showMainFromNotes()">← Back to Hub</button>
                 <div class="lang-toggle">
                     <label for="lang-select">Language:</label>
                     <select id="lang-select" onchange="switchUILang(this.value)">
@@ -301,7 +301,7 @@
 
           <!--Ibrahim Shbeeb's Calculator App-->
         <div id="calculator-app" class="todo-app">
-        <button class="back-button" onclick="showMain()">← Back</button>
+        <button class="back-button" onclick="showMainFromNotes()">← Back</button>
         <div id="calc-display" class="calc-display">0</div>
         <div id="calc-buttons" class="calc-buttons"></div>
         </div>
@@ -309,7 +309,7 @@
 
         <!--Mariam Pomodoros-->
         <div id="pomodoro-app" class="todo-app">
-            <button onclick="showMain()" class="back-button">← Back</button>
+            <button onclick="showMainFromNotes()" class="back-button">← Back</button>
             <h2>Pomodoro Timer</h2>
             <div id="timer">25:00</div>
             <div class="controls">
