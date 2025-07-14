@@ -7,12 +7,23 @@ document.querySelectorAll("#calculator-aliya-app .btn").forEach(button => {
   });
 });
 
+
+
 AppUtils.onClick("clear", () => {
   AppUtils.setValue("aliya-calc-display", "");
 });
 
+
+
+
 AppUtils.onClick("equals", () => {
   const expression = AppUtils.getValue("aliya-calc-display");
+
+  if (expression.trim() === "") {
+    AppUtils.setValue("aliya-calc-display", "0");
+    return;
+  }
+
   try {
     const result = Function('"use strict"; return (' + expression + ')')();
     if (result === Infinity || result === -Infinity) {
