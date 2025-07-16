@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
     <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
     <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+    <link rel="stylesheet" href="apps/aliaa/calculator2.css">
     <link rel="stylesheet" href="apps/lamazuaiter/countdown.css">
     <link rel="stylesheet" href="apps/abdelghani/random-quotes.css" />
     <link rel="stylesheet" href="apps/Ibrahim_Shbeeb/style.css">
@@ -54,13 +55,13 @@
                     <button class="app-button" onclick="showApp('quote')">Launch App</button>
                 </div>
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Alya Tarwan</div>
-                    <div class="app-description">Alya is working on something special. Check back soon for the big
-                        reveal!</div>
-                    <button class="app-button" disabled>Coming Soon</button>
-                </div>
+            <div class="app-card implemented">
+                <span class="status-badge">LIVE</span>
+                <div class="app-name">Calculator By Aliaa</div>
+                <div class="app-description">Simple calculator with basic arithmetic operations</div>
+                <button class="app-button" onclick="showApp('calculator-aliya')">Launch App</button>
+            </div>
+
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
@@ -117,7 +118,7 @@
                     <button class="app-button" onclick="showApp('calculator')">Launch App</button>
                 </div>
 
-                         <div class="app-card implemented">
+                <div class="app-card implemented">
                    <div class="status-badge">LIVE</div>
                  <div class="app-name">Tip Splitter</div>
                   <div class="app-description">Split your bill with tip among friends.</div>
@@ -195,6 +196,7 @@
         <div class="todo-omar-header">
             <h2>🧠 Random Quote Generator</h2>
         </div>
+
         <div id="quote-omar-text">
             Click the button for a quote!
         </div>
@@ -310,6 +312,40 @@
 
     </div>
 
+<!-- Calculator App - by Aliya -->
+<div id="calculator-aliya-app" class="todo-app">
+  <button onclick="showMain()" class="back-button">← Back</button>
+
+  <div class="calculator-container">
+    <div class="operators-column">
+      <button class="btn" data-value="/">÷</button>
+      <button class="btn" data-value="*">×</button>
+      <button class="btn" data-value="-">−</button>
+      <button class="btn" data-value="+">+</button>
+      <button id="equals" class="btn-equals">=</button>
+    </div>
+
+    <div class="numbers-column">
+      <input id="aliya-calc-display" type="text" readonly class="aliya-calc-display" />
+
+      <div class="numbers-grid">
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn" data-value=".">.</button>
+        <button class="btn" data-value="0">0</button>
+        <button id="clear" class="btn-clear">C</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Scripts -->
     <script src="script.js"></script>
     <script src="apps/raidApp.js"></script>
@@ -321,6 +357,8 @@
     <script src="apps/Ibrahim_Shbeeb/calculator.js"></script>
     <script src="apps/lamazuaiter/countdown.js"></script>
     <script src="apps/abdelghani/random-quotes.js"></script>
+    <script src="apps/aliaa/calculator2.js"></script>
+
 
 </body>
 </html>
