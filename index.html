@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaborative Apps Hub</title>
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
+    <link rel="stylesheet" href="apps/Yamen_Tahseen/quote-app.css">
+
+    <link rel="stylesheet" href="apps/Osama_AbuHammad/styleosama.css">
+
+
+ feature/color-picker
+    <link rel="stylesheet" href="apps/Osama_AbuHammad/styleosama.css">
+
     <link rel="stylesheet" href="apps/omar/quote.css">
     <link rel="stylesheet" href="apps/dania/tip.css" />
     <link rel="stylesheet" href="apps/Yazan_Alqasem/styles.css">
@@ -17,6 +26,12 @@
     <link rel="stylesheet" href="apps/Ibrahim_Shbeeb/style.css">
 </head>
 
+
+
+    <link rel="stylesheet" href="apps/Maryam_Mahmoud/Pomodoro.css">
+ main
+
+</head>
 <body>
     <div class="container">
         <div class="header">
@@ -30,8 +45,7 @@
                 <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">RAID</div>
-                    <div class="app-description">A simple and elegant todo list application to help you organize your
-                        tasks and boost productivity.</div>
+                    <div class="app-description">A simple and elegant todo list application to help you organize your tasks and boost productivity.</div>
                     <button class="app-button" onclick="showApp('raid')">Launch App</button>
                 </div>
 
@@ -55,6 +69,14 @@
                     <button class="app-button" onclick="showApp('quote')">Launch App</button>
                 </div>
 
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Alya Tarwan</div>
+                    <div class="app-description">Alya is working on something special. Check back soon for the big reveal!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
+                </div>
+
             <div class="app-card implemented">
                 <span class="status-badge">LIVE</span>
                 <div class="app-name">Calculator By Aliaa</div>
@@ -63,45 +85,69 @@
             </div>
 
 
-                <div class="app-card not-implemented">
-                    <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Mohammad Nazzal</div>
-                    <div class="app-description">Mohammad's application is in development. Exciting features await!
-                    </div>
-                    <button class="app-button" disabled>Coming Soon</button>
-                </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
-                    <div class="app-name">Osama AbuHammad</div>
-                    <div class="app-description">Osama is crafting a unique digital experience. Coming soon!</div>
+                    <div class="app-name">Mohammad Nazzal</div>
+                    <div class="app-description">Mohammad's application is in development. Exciting features await!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
+                <div class="app-card implemented">
+                <div class="status-badge">LIVE</div>
+                <div class="app-name">Color Palette Picker</div>
+                <div class="app-description">Generate beautiful random color palettes!</div>
+                <button class="app-button" onclick="showApp('colorPicker')">Launch App</button>
+                </div>
+
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
                     <div class="app-name">Abdullah AbuSubh</div>
-                    <div class="app-description">Abdullah's creative project is under construction. Great things are
-                        coming!</div>
+                    <div class="app-description">Abdullah's creative project is under construction. Great things are coming!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
-                <div class="app-card implemented">
-                    <div class="status-badge">LIVE</div>
-                    <div class="app-name">Pomodoro Timer</div>
-                    <div class="app-description">A productivity timer app based on the Pomodoro technique.</div>
-                    <button class="app-button" onclick="showApp('pomodoro')">
-                        Launch App
-                    </button>
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Mariam Mahmoud</div>
+                    <div class="app-description">Mariam is developing something wonderful. Stay tuned for the launch!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
                     <div class="app-name">Mohammad Smadi</div>
-                    <div class="app-description">Mohammad's innovative solution is on its way. Prepare to be impressed!
-                    </div>
+                    <div class="app-description">Mohammad's innovative solution is on its way. Prepare to be impressed!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
+
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Abd-AlGhani AlGhoul</div>
+                    <div class="app-description">Abd-AlGhani is building something amazing. The wait will be worth it!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
+                </div>
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Ibrahim Shbaib</div>
+                    <div class="app-description">Ibrahim's creative application is in the works. Exciting times ahead!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
+                </div>
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Dania Jarbou</div>
+                    <div class="app-description">Dania is cooking up something special. Get ready for an amazing experience!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
+                </div>
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Omar Marashdeh</div>
+                    <div class="app-description">Omar's innovative project is coming together. Stay tuned for the big reveal!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
 
                 <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
@@ -133,21 +179,29 @@
                     <button class="app-button" onclick="showApp('quote-omar')">
                         Launch App
                     </button>
+
                 </div>
 
                 <div class="app-card not-implemented">
                     <div class="status-badge">COMING SOON</div>
                     <div class="app-name">Qais Mehdawei</div>
-                    <div class="app-description">Qais is developing something extraordinary. The anticipation is
-                        building!</div>
+                    <div class="app-description">Qais is developing something extraordinary. The anticipation is building!</div>
                     <button class="app-button" disabled>Coming Soon</button>
                 </div>
 
+
+                <div class="app-card not-implemented">
+                    <div class="status-badge">COMING SOON</div>
+                    <div class="app-name">Lama Zuaiter</div>
+                    <div class="app-description">Lama's creative vision is taking shape. Something awesome is on the way!</div>
+                    <button class="app-button" disabled>Coming Soon</button>
+                  
                <div class="app-card implemented">
                     <div class="status-badge">LIVE</div>
                     <div class="app-name">Countdown-Timer</div>
                     <div class="app-description">Set a countdown and watch it tick down!</div>
                     <button class="app-button" onclick="showApp('countdownTimer')"> Launch App </button>
+
                 </div>
             </div>
 
@@ -155,11 +209,55 @@
                 <h3>How to Contribute?</h3>
                 <p><strong>Step 1:</strong> Fork/Clone this repository</p>
                 <p><strong>Step 2:</strong> Find your card and update it to "implemented" status</p>
-                <p><strong>Step 3:</strong> Add your app section to the HTML and implement your assigned functionality
-                </p>
+                <p><strong>Step 3:</strong> Add your app section to the HTML and implement your assigned functionality</p>
                 <p><strong>Step 4:</strong> Create a new branch and submit a Pull Request to be reviewd and merged</p>
                 <p><strong>Step 5:</strong> See your app go live for everyone to enjoy!</p>
             </div>
+        </div>
+
+
+        <!-- RAID Todo App -->
+        <div id="raid-app" class="todo-app">
+            <button class="back-button" onclick="showMain()">← Back to Hub</button>
+            
+            <div class="todo-header">
+                <h2>RAID Todo List</h2>
+                <p>Stay organized and productive!</p>
+            </div>
+
+            <div class="todo-input-container">
+                <input type="text" id="todo-input" class="todo-input" placeholder="Enter a new task..." onkeypress="handleKeyPress(event)">
+                <button class="add-button" onclick="addTodo()">Add Task</button>
+            </div>
+
+            <ul id="todo-list" class="todo-list"></ul>
+        </div>
+
+        <!-- Yazan's Markdown App -->
+        <div id="markdown-app" class="markdown-app">
+          <button class="back-button" onclick="showMain()">← Back to Hub</button>
+
+          <div class="md-header">
+              <h2>Markdown Previewer</h2>
+              <p>Live-render GitHub-flavored Markdown as you type.</p>
+          </div>
+
+          <div class="md-input-section">
+              <textarea
+              id="markdown-input"
+              class="md-editor"
+              rows="8"
+              placeholder="Enter Markdown here…"
+              ></textarea>
+          </div>
+
+          <div class="md-preview-section">
+              <label for="markdown-output" class="md-label">Preview:</label>
+              <div
+              id="markdown-output"
+              class="md-preview markdown-body"
+              ></div>
+          </div>
         </div>
 
     <div id="countdownTimer-app" class="todo-app">
@@ -256,6 +354,7 @@
 </div>
 
 
+
         <!-- Yamen Tahseen's Quote App -->
         <div id="quote-app" class="todo-app">
             <div class="toggles">
@@ -288,11 +387,23 @@
             </div>
         </div>
 
+        <!-- osama abuhammad colorPicker-app -->
+        <div id="colorPicker-app" class="todo-app">
+        <button id="back-button" class="back-button">← Back to Hub</button>
+        <div class="cp-header">
+        <h2>Color Palette Picker</h2>
+        <p>Generate beautiful random color palettes!</p>
+        </div>
+        <div id="palette-container" class="palette-grid"></div>
+        <button id="generate-btn" class="generate-button">Generate Palette</button>
+
+
           <!--Ibrahim Shbeeb's Calculator App-->
         <div id="calculator-app" class="todo-app">
         <button class="back-button" onclick="showMain()">← Back</button>
         <div id="calc-display" class="calc-display">0</div>
         <div id="calc-buttons" class="calc-buttons"></div>
+
         </div>
         
 
@@ -310,7 +421,29 @@
         </div>
 
 
+
+
     </div>
+
+
+
+ b2bbc0be1733a50c6cf1c417c7e4e938e90c10d4
+    <script src="script.js"></script>
+    <script src="apps/raidApp.js"></script>
+    <script src="apps/Yazan_Alqasem/gmarkdownApp.js"></script>
+    <script src="apps/Yamen_Tahseen/quoteApp.js"></script>
+
+    <script src="apps/Osama_AbuHammad/colorPicker.js"></script>
+
+
+
+ feature/color-picker
+    <script src="apps/Osama_AbuHammad/colorPicker.js"></script>
+
+    <script src="apps/Maryam_Mahmoud/pomodoroJs.js"></script>
+
+</body>
+</html>
 
 <!-- Calculator App - by Aliya -->
 <div id="calculator-aliya-app" class="todo-app">
@@ -362,3 +495,4 @@
 
 </body>
 </html>
+
